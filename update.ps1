@@ -12,16 +12,22 @@
 #>
 
 function Repo([string]$name, [string]$URLpart) {
+	Start-Sleep -seconds 1
+	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
+	foreach($release in $releases) {
+		"* [$name](https://github.com/$URLpart) $($release.name)"
+		return
+	}
 	$tags = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/tags -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
 	foreach($tag in $tags) {
 		"* [$name](https://github.com/$URLpart) $($tag.name)"
-		break
+		return
 	}
 }
 
 try {
-	"The Daily GitHub - Latest Repo Tags as of SEP 19"
-	"================================================"
+	"The Daily GitHub - Latest Releases as of SEP 19"
+	"==============================================="
 	Repo "Bazel"              "bazelbuild/bazel"
 	Repo "cmake"              "Kitware/CMake"
 	Repo "curl"               "curl/curl"
