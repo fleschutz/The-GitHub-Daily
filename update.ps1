@@ -1,4 +1,4 @@
-<#
+﻿<#
 .SYNOPSIS
         Update the Daily GitHub
 .DESCRIPTION
