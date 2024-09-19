@@ -13,12 +13,12 @@
 
 function Repo([string]$name, [string]$URLpart) {
 	Start-Sleep -seconds 1
-	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
+	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases?per_page=1 -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
 	foreach($release in $releases) {
 		"* [$name](https://github.com/$URLpart) $($release.name)"
 		return
 	}
-	$tags = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/tags -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
+	$tags = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/tags?per_page=1 -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
 	foreach($tag in $tags) {
 		"* [$name](https://github.com/$URLpart) $($tag.name)"
 		return
