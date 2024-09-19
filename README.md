@@ -1,5 +1,5 @@
-﻿The Daily GitHub - Latest Repo Tags as of SEP 19
-================================================
+﻿The Daily GitHub - Latest Releases as of SEP 19
+===============================================
 * [Bazel](https://github.com/bazelbuild/bazel) 8.0.0-pre.20240909.1
 * [cmake](https://github.com/Kitware/CMake) v3.30.3
 * [curl](https://github.com/curl/curl) v7_0_2beta
