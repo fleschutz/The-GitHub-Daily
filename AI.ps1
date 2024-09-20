@@ -23,8 +23,8 @@ function Repo([string]$name, [string]$URLpart) {
 }
 
 try {
-	"Welcome to GitHub Daily News: Latest Releases"
-	"============================================="
+	"Welcome to The Daily GitHub: Latest Releases"
+	"============================================"
 	""
 	$ln = ""
 	$ln += Repo "curl"               "curl/curl"
@@ -40,7 +40,7 @@ try {
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"
 	$ln += Repo "ZFS"                "openzfs/zfs"
-	"*Updated September 20:* The latest releases in the **Featured** section are $ln"
+	"*Updated September 20 by AI.ps:* The latest releases in the **Featured** section are $ln"
 	""
 	""
 	$ln = ""
@@ -65,7 +65,7 @@ try {
 	$ln += Repo "Scala"              "scala/scala"
 	$ln += Repo "Swift"              "swiftlang/swift"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"
-	"And in **Programming Languages** we do have $ln"
+	"And in **Programming Languages** we have $ln"
 	""
 	""
 	$ln = ""
@@ -88,7 +88,7 @@ try {
 	"And last but not least **DevOps** with $ln"
 	""
 	""
-	"That's it for now. This page was generated automatically by PowerShell script update.ps1. See you next time."
+	"That's it for now but stay tuned. See you next time."
 	exit 0 # success
 } catch {
         "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
