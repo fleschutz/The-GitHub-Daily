@@ -15,9 +15,7 @@ function Repo([string]$name, [string]$URLpart) {
 	Start-Sleep -seconds 3
 	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases?per_page=1 -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
 	foreach($release in $releases) {
-		if ($release.name -ne "") { $version = $release.name
-		} else {                    $version = $release.tag_name
-		}
+		$version = $release.tag_name
 		if ($release.published_at -like "2024-09-20T*") { $version += "🆕" }
 		"* [$name](https://github.com/$URLpart) $version"
 		return
@@ -47,10 +45,14 @@ try {
 	"Programming Languages"
 	"---------------------"
 	""
+	Repo "CoffeeScript"       "jashkenas/coffeescript"
 	Repo "Go"                 "golang/go"
 	Repo "Julia"              "JuliaLang/julia"
 	Repo "Kotlin"             "JetBrains/kotlin"
+	Repo "PHP"                "php/php-src"
 	Repo "PowerShell"         "PowerShell/PowerShell"
+	Repo "Python"             "python/cpython"
+	Repo "Ruby"               "ruby/ruby"
 	Repo "Rust"               "rust-lang/rust"
 	Repo "Scala"              "scala/scala"
 	Repo "Swift"              "swiftlang/swift"
