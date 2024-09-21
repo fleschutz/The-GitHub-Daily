@@ -1,8 +1,8 @@
 ﻿<#
 .SYNOPSIS
-        Update the Daily GitHub
+        Update The Daily GitHub
 .DESCRIPTION
-        This PowerShell script writes the Daily GitHub to the standard output.
+        This PowerShell script writes The Daily GitHub to the standard output.
 .EXAMPLE
         PS> ./AI.ps1 > README.md
 .LINK
@@ -23,8 +23,10 @@ function Repo([string]$name, [string]$URLpart) {
 }
 
 try {
-	"Welcome to The Daily GitHub: Latest Releases"
-	"============================================"
+	"The Daily GitHub: Latest Releases"
+	"================================="
+	""
+	"Welcome to an automatically generated overview of selected GitHub repositories as of September 21, 2024."
 	""
 	$ln = ""
 	$ln += Repo "curl"               "curl/curl"
@@ -40,7 +42,7 @@ try {
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"
 	$ln += Repo "ZFS"                "openzfs/zfs"
-	"*Updated September 21 by AI.ps:* The latest releases in the **Featured** section are $ln"
+	"The latest releases in the **Featured** section are $ln"
 	""
 	""
 	$ln = ""
@@ -65,26 +67,33 @@ try {
 	$ln += Repo "Scala"              "scala/scala"
 	$ln += Repo "Swift"              "swiftlang/swift"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"
-	"And in **Programming Languages** we have $ln"
+	"In **Programming Languages** we have $ln"
 	""
 	""
 	$ln = ""
+	$ln += Repo "Apache Ant"         "apache/ant"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"
 	$ln += Repo "CMake"              "Kitware/CMake"
 	$ln += Repo "Gradle"             "gradle/gradle"
 	$ln += Repo "Homebrew"           "Homebrew/brew"
 	$ln += Repo "LLVM"               "llvm/llvm-project"
+	$ln += Repo "Maven"              "apache/maven"
+	$ln += Repo "Meson"              "mesonbuild/meson"
 	$ln += Repo "Ninja"              "ninja-build/ninja"
+	$ln += Repo "Pants"              "pantsbuild/pants"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"
 	"Looking at **Compiler &amp; Build Systems** we have $ln"
 	""
 	""
 	$ln = ""
 	$ln += Repo "Ansible"            "ansible/ansible"
+	$ln += Repo "Chef"               "chef/chef"
 	$ln += Repo "Grafana"            "grafana/grafana"
 	$ln += Repo "Jenkins"            "jenkinsci/jenkins"
 	$ln += Repo "Kubernetes"         "kubernetes/kubernetes"
 	$ln += Repo "Puppet"             "puppetlabs/puppet"
+	$ln += Repo "Salt"               "saltstack/salt"
+	$ln += Repo "Terraform"          "hashicorp/terraform"
 	"And last but not least **DevOps** with $ln"
 	""
 	""
