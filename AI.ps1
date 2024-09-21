@@ -4,7 +4,7 @@
 .DESCRIPTION
         This PowerShell script writes the Daily GitHub to the standard output.
 .EXAMPLE
-        PS> ./update > README.md
+        PS> ./AI.ps1 > README.md
 .LINK
         https://github.com/fleschutz/whats-new
 .NOTES
@@ -16,7 +16,7 @@ function Repo([string]$name, [string]$URLpart) {
 	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases?per_page=1 -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
 	foreach($release in $releases) {
 		$version = $release.tag_name
-		if ($release.published_at -like "2024-09-20T*") { $version += "🆕" }
+		if ($release.published_at -like "2024-09-21T*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return ""
@@ -40,7 +40,7 @@ try {
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"
 	$ln += Repo "ZFS"                "openzfs/zfs"
-	"*Updated September 20 by AI.ps:* The latest releases in the **Featured** section are $ln"
+	"*Updated September 21 by AI.ps:* The latest releases in the **Featured** section are $ln"
 	""
 	""
 	$ln = ""
