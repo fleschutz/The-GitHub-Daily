@@ -4,7 +4,7 @@
 .DESCRIPTION
         This PowerShell script writes The Daily GitHub to the standard output. It requires GitHub CLI.
 .EXAMPLE
-        PS> ./AI.ps1 > README.md
+        PS> ./bot.ps1 > README.md
 .LINK
         https://github.com/fleschutz/whats-new
 .NOTES
@@ -42,7 +42,6 @@ try {
 	$ln += Repo "ZFS"                "openzfs/zfs"
 	"**Today, SEP 22,** the latest releases in the **Featured** section are: $ln"
 	""
-	""
 	$ln = Repo "AssemblyScript"     "AssemblyScript/assemblyscript"
 	$ln += Repo "C#"                 "dotnet/csharplang"
 	$ln += Repo "Clojure"            "clojure/clojure"
@@ -52,10 +51,14 @@ try {
 	$ln += Repo "Elixir"             "elixir-lang/elixir"
 	$ln += Repo "Elm"                "elm/compiler"
 	$ln += Repo "Erlang"             "erlang/otp"
+	$ln += Repo "Groovy"             "apache/groovy"
 	$ln += Repo "Julia"              "JuliaLang/julia"
 	$ln += Repo "Kotlin"             "JetBrains/kotlin"
 	$ln += Repo "MicroPython"        "micropython/micropython"
+	$ln += Repo "Mojo"               "modularml/mojo"
 	$ln += Repo "Nim"                "nim-lang/Nim"
+	$ln += Repo "Odin"               "odin-lang/Odin"
+	$ln += Repo "Orca"               "hundredrabbits/Orca"
 	$ln += Repo "PHP"                "php/php-src"
 	$ln += Repo "PowerShell"         "PowerShell/PowerShell"
 	$ln += Repo "Python"             "python/cpython"
@@ -67,7 +70,6 @@ try {
 	$ln += Repo "Swift"              "swiftlang/swift"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"
 	"In **Programming Languages** we have: $ln"
-	""
 	""
 	$ln = Repo "Apache Ant"         "apache/ant"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"
@@ -82,18 +84,17 @@ try {
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"
 	"Looking at **Compiler &amp; Build Systems** we have: $ln"
 	""
-	""
 	$ln = Repo "Atom"               "atom/atom"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"
 	$ln += Repo "NetBeans"           "apache/netbeans"
 	$ln += Repo "NeoVim"             "neovim/neovim"
 	$ln += Repo "TextMate"           "textmate/textmate"
+	$ln += Repo "Nano"               "madnight/nano"
 	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus"
 	$ln += Repo "Vim"                "vim/vim"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"
 	$ln += Repo "Zed"                "zed-industries/zed"
 	"In **Text Editors** we are at: $ln"
-	""
 	""
 	$ln = Repo "Ansible"            "ansible/ansible"
 	$ln += Repo "Capistrano"         "capistrano/capistrano"
@@ -110,7 +111,6 @@ try {
 	$ln += Repo "Terraform"          "hashicorp/terraform"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"
 	"And last but not least **DevOps** with: $ln"
-	""
 	""
 	"That's it for today but stay tuned. See you next time."
 	exit 0 # success
