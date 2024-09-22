@@ -2,7 +2,7 @@
 .SYNOPSIS
         Update The Daily GitHub
 .DESCRIPTION
-        This PowerShell script writes The Daily GitHub to the standard output.
+        This PowerShell script writes The Daily GitHub to the standard output. It requires GitHub CLI.
 .EXAMPLE
         PS> ./AI.ps1 > README.md
 .LINK
@@ -12,24 +12,22 @@
 #>
 
 function Repo([string]$name, [string]$URLpart) {
-	Start-Sleep -seconds 5
-	$releases = (Invoke-WebRequest -URI https://api.github.com/repos/$URLpart/releases?per_page=1 -userAgent "curl" -useBasicParsing).Content | ConvertFrom-Json
+	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	foreach($release in $releases) {
 		$version = $release.tag_name
-		if ($release.published_at -like "2024-09-21T*") { $version += "🆕" }
+		if ($release.published_at -like "2024-09-22T*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return ""
 }
 
 try {
-	"The Daily GitHub: Latest Releases"
-	"================================="
+	"The Daily GitHub: Latest Repo Releases"
+	"======================================"
 	""
-	"Welcome to an automatically generated overview of selected GitHub repositories as of September 21, 2024."
+	"**Welcome to an automatically generated overview of selected GitHub repositories.**"
 	""
-	$ln = ""
-	$ln += Repo "curl"               "curl/curl"
+	$ln = Repo "curl"               "curl/curl"
 	$ln += Repo "Hugo"               "gohugoio/hugo"
 	$ln += Repo "Linux kernel"       "torvalds/linux"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"
@@ -42,11 +40,10 @@ try {
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"
 	$ln += Repo "ZFS"                "openzfs/zfs"
-	"The latest releases in the **Featured** section are $ln"
+	"**Today, SEP 22,** the latest releases in the **Featured** section are $ln"
 	""
 	""
-	$ln = ""
-	$ln += Repo "AssemblyScript"     "AssemblyScript/assemblyscript"
+	$ln = Repo "AssemblyScript"     "AssemblyScript/assemblyscript"
 	$ln += Repo "Clojure"            "clojure/clojure"
 	$ln += Repo "CoffeeScript"       "jashkenas/coffeescript"
 	$ln += Repo "Crystal"            "crystal-lang/crystal"
@@ -70,8 +67,7 @@ try {
 	"In **Programming Languages** we have $ln"
 	""
 	""
-	$ln = ""
-	$ln += Repo "Apache Ant"         "apache/ant"
+	$ln = Repo "Apache Ant"         "apache/ant"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"
 	$ln += Repo "CMake"              "Kitware/CMake"
 	$ln += Repo "Gradle"             "gradle/gradle"
@@ -85,15 +81,20 @@ try {
 	"Looking at **Compiler &amp; Build Systems** we have $ln"
 	""
 	""
-	$ln = ""
-	$ln += Repo "Ansible"            "ansible/ansible"
+	$ln = Repo "Ansible"            "ansible/ansible"
+	$ln += Repo "Capistrano"         "capistrano/capistrano"
 	$ln += Repo "Chef"               "chef/chef"
 	$ln += Repo "Grafana"            "grafana/grafana"
 	$ln += Repo "Jenkins"            "jenkinsci/jenkins"
 	$ln += Repo "Kubernetes"         "kubernetes/kubernetes"
+	$ln += Repo "Moby"               "moby/moby"
+	$ln += Repo "OpenStack"          "openstack/openstack"
+	$ln += Repo "Prometheus"         "prometheus/prometheus"
 	$ln += Repo "Puppet"             "puppetlabs/puppet"
 	$ln += Repo "Salt"               "saltstack/salt"
+	$ln += Repo "statsd"             "statsd/statsd"
 	$ln += Repo "Terraform"          "hashicorp/terraform"
+	$ln += Repo "Vagrant"            "hashicorp/vagrant"
 	"And last but not least **DevOps** with $ln"
 	""
 	""
