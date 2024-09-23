@@ -15,7 +15,7 @@ function Repo([string]$name, [string]$URLpart) {
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	foreach($release in $releases) {
 		$version = $release.tag_name
-		if ("$($release.published_at)" -like "2024-09-22T*") { $version += "🆕" }
+		if ("$($release.published_at)" -like "2024-09-23T*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return ""
@@ -40,7 +40,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim"
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"
 	$ln += Repo "ZFS"                "openzfs/zfs"
-	"**Today, SEP 22,** the latest releases in the **Featured** section are: $ln"
+	"**Today Sept. 23,** the latest releases in the **Featured** section are: $ln"
 	""
 	$ln = Repo "AssemblyScript"     "AssemblyScript/assemblyscript"
 	$ln += Repo "C#"                 "dotnet/csharplang"
