@@ -21,6 +21,16 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ("$($release.published_at)" -like "2024-09-23T*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
+
+	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
+	foreach($tag in $tags) {
+		$version = $tag.name
+		if ($version -like $versionPrefix) {
+			$version = $version.Substring($versionPrefix.Length - 1)
+		}
+		if ("$($tag.published_at)" -like "2024-09-23T*") { $version += "🆕" }
+		return "[$name](https://github.com/$URLpart) $version, "
+	}
 	return "[$name](https://github.com/$URLpart), "
 }
 
@@ -32,7 +42,7 @@ try {
 	""
 	$ln = Repo "curl"                "curl/curl"          "curl-*"
 	$ln += Repo "Hugo"               "gohugoio/hugo"      "v*"
-	$ln += Repo "Linux kernel"       "torvalds/linux"     ""
+	$ln += Repo "Linux"              "torvalds/linux"     "v*"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"  "v*"
 	$ln += Repo "OpenMCT"            "nasa/openmct"       "v*"
 	$ln += Repo "Redis"              "redis/redis"        ""
@@ -50,7 +60,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim" ""
 	$ln += Repo "Visual Studio Code" "microsoft/vscode" ""
 	$ln += Repo "Zed"                "zed-industries/zed" "v*"
-	"In **Text Editor / IDE's** the latest releases are: $ln"
+	"In **Text Editors / IDE's** the latest releases are: $ln"
 	""
 	$ln = Repo "Chromium"            "chromium/chromium" ""
 	$ln += Repo "GIMP"               "GNOME/gimp" ""
