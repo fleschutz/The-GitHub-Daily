@@ -18,7 +18,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($release.published_at)" -like "2024-09-23T*") { $version += "🆕" }
+		if ("$($release.published_at)" -like "2024-09-2*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 
@@ -28,7 +28,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($tag.published_at)" -like "2024-09-23T*") { $version += "🆕" }
+		if ("$($tag.published_at)" -like "2024-09-2*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return "[$name](https://github.com/$URLpart), "
@@ -49,7 +49,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	"**Today Sept. 24,** the latest releases in the **Featured** section are: $ln"
+	"**Today Sept. 25,** the latest releases in the **Featured** section are: $ln"
 	""
 	$ln = Repo "Atom"                "atom/atom"          "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
