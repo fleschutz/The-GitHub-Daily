@@ -49,7 +49,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	"**Today Sept. 28,** the latest releases in the **Featured** section are: $ln"
+	"**Today Sept. 30,** the latest releases in the **Featured** section are: $ln"
 	""
 	$ln = Repo "Atom"                "atom/atom"          "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
