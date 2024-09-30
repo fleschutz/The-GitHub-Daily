@@ -1,8 +1,8 @@
 ﻿<#
 .SYNOPSIS
-        Generates 'The Daily GitHub Overview'
+        Generates 'The Daily GitHub News'
 .DESCRIPTION
-        This PowerShell script writes the content for 'The Daily GitHub Overview' into README.md. Required is GitHub CLI.
+        This PowerShell script writes the content for 'The Daily GitHub News' into README.md. Required is GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
@@ -40,8 +40,8 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 
 try {
 	Write-Output "" > README.md
-	WriteLine "The Daily GitHub Overview"
-	WriteLine "========================="
+	WriteLine "The Daily GitHub News"
+	WriteLine "====================="
 	WriteLine ""
 
 	$ln = Repo "curl"                "curl/curl"          "curl-*"
@@ -53,7 +53,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	WriteLine "**GitHub, Today Sept. 30, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
+	WriteLine "**GitHub, September 30, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"          "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
