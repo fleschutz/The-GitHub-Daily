@@ -53,7 +53,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	WriteLine "**GitHub, September 30, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
+	WriteLine "**GitHub, October 1, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"          "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
