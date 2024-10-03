@@ -40,8 +40,8 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 
 try {
 	Write-Output "" > README.md
-	WriteLine "The Daily GitHub News"
-	WriteLine "====================="
+	WriteLine "📰 The Daily GitHub News"
+	WriteLine "========================"
 	WriteLine ""
 
 	$ln = Repo "curl"                "curl/curl"          "curl-*"
@@ -53,20 +53,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	WriteLine "**GitHub, October 3, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
-
-	$ln = Repo "Atom"                "atom/atom"          "v*"
-	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
-	$ln += Repo "NetBeans"           "apache/netbeans"    ""
-	$ln += Repo "NeoVim"             "neovim/neovim"      ""
-	$ln += Repo "TextMate"           "textmate/textmate"  "v*"
-	$ln += Repo "Nano"               "madnight/nano"      ""
-	$ln += Repo "Neovim"             "neovim/neovim"      "v*"
-	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus" "v*"
-	$ln += Repo "Vim"                "vim/vim"            "v*"
-	$ln += Repo "Visual Studio Code" "microsoft/vscode"   ""
-	$ln += Repo "Zed"                "zed-industries/zed" "v*"
-	WriteLine "In **Text Editors / IDE's** the latest are: $ln`n"
+	WriteLine "**GitHub, October 3, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -82,7 +69,20 @@ try {
 	$ln += Repo "Winamp"             "WinampDesktop/winamp"        ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "The **General Apps** releases are: $ln`n"
+	WriteLine "Latest releases in **General Apps** are: $ln`n"
+
+	$ln = Repo "Atom"                "atom/atom"          "v*"
+	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
+	$ln += Repo "NetBeans"           "apache/netbeans"    ""
+	$ln += Repo "NeoVim"             "neovim/neovim"      "v*"
+	$ln += Repo "TextMate"           "textmate/textmate"  "v*"
+	$ln += Repo "Nano"               "madnight/nano"      ""
+	$ln += Repo "Neovim"             "neovim/neovim"      "v*"
+	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus" "v*"
+	$ln += Repo "Vim"                "vim/vim"            "v*"
+	$ln += Repo "Visual Studio Code" "microsoft/vscode"   ""
+	$ln += Repo "Zed"                "zed-industries/zed" "v*"
+	WriteLine "In **Text Editors / IDE's** the latest are: $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
