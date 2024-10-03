@@ -22,7 +22,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($release.published_at)" -like "2024-09-2*") { $version += "🆕" }
+		if ("$($release.published_at)" -like "2024-10-*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 
@@ -32,7 +32,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($tag.published_at)" -like "2024-09-2*") { $version += "🆕" }
+		if ("$($tag.published_at)" -like "2024-10-*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return "[$name](https://github.com/$URLpart), "
@@ -53,7 +53,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"        ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
-	WriteLine "**GitHub, October 2, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
+	WriteLine "**GitHub, October 3, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"          "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
@@ -71,6 +71,7 @@ try {
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
+	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "n*"
 	$ln += Repo "GIMP"               "GNOME/gimp"                  ""
 	$ln += Repo "Git Extensions"     "gitextensions/gitextensions" "v*"
 	$ln += Repo "LibreOffice"        "LibreOffice/core"            ""
@@ -121,7 +122,8 @@ try {
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
-	WriteLine "In **Software Libs** the latest releases are: $ln`n"
+	$ln += Repo "Whisper"            "openai/whisper"          "v*"
+	WriteLine "In **Software Libs / ML** the latest releases are: $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          ""
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
