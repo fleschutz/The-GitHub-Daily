@@ -2,7 +2,8 @@
 .SYNOPSIS
         Generates 'The Daily GitHub News'
 .DESCRIPTION
-        This PowerShell script writes the content for 'The Daily GitHub News' into README.md. Required is GitHub CLI.
+        This PowerShell script writes the text content for 'The Daily GitHub News' into README.md.
+	Required is GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
@@ -44,21 +45,21 @@ try {
 	WriteLine "========================"
 	WriteLine ""
 
-	$ln = Repo "curl"                "curl/curl"          "curl-*"
-	$ln += Repo "Git"                "git/git"            "v*"
-	$ln += Repo "Hugo"               "gohugoio/hugo"      "v*"
-	$ln += Repo "Linux"              "torvalds/linux"     "v*"
-	$ln += Repo "Mastodon"           "mastodon/mastodon"  "v*"
-	$ln += Repo "OpenMCT"            "nasa/openmct"       "v*"
-	$ln += Repo "Redis"              "redis/redis"        ""
+	$ln = Repo "curl"                "curl/curl"                   "curl-*"
+	$ln += Repo "Git"                "git/git"                     "v*"
+	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
+	$ln += Repo "Linux"              "torvalds/linux"              "v*"
+	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
+	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
+	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
-	$ln += Repo "ZFS"                "openzfs/zfs"        "zfs-*"
+	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	WriteLine "**GitHub, October 3, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
-	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "n*"
+	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "v*"
 	$ln += Repo "GIMP"               "GNOME/gimp"                  ""
 	$ln += Repo "Git Extensions"     "gitextensions/gitextensions" "v*"
 	$ln += Repo "LibreOffice"        "LibreOffice/core"            ""
@@ -71,17 +72,17 @@ try {
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
 	WriteLine "Latest releases in **General Apps** are: $ln`n"
 
-	$ln = Repo "Atom"                "atom/atom"          "v*"
-	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs" ""
-	$ln += Repo "NetBeans"           "apache/netbeans"    ""
-	$ln += Repo "NeoVim"             "neovim/neovim"      "v*"
-	$ln += Repo "TextMate"           "textmate/textmate"  "v*"
-	$ln += Repo "Nano"               "madnight/nano"      ""
-	$ln += Repo "Neovim"             "neovim/neovim"      "v*"
+	$ln = Repo "Atom"                "atom/atom"                   "v*"
+	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"          ""
+	$ln += Repo "NetBeans"           "apache/netbeans"             ""
+	$ln += Repo "NeoVim"             "neovim/neovim"               "v*"
+	$ln += Repo "TextMate"           "textmate/textmate"           "v*"
+	$ln += Repo "Nano"               "madnight/nano"               ""
+	$ln += Repo "Neovim"             "neovim/neovim"               "v*"
 	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus" "v*"
-	$ln += Repo "Vim"                "vim/vim"            "v*"
-	$ln += Repo "Visual Studio Code" "microsoft/vscode"   ""
-	$ln += Repo "Zed"                "zed-industries/zed" "v*"
+	$ln += Repo "Vim"                "vim/vim"                     "v*"
+	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
+	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
 	WriteLine "In **Text Editors / IDE's** the latest are: $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
