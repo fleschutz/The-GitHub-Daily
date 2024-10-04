@@ -54,7 +54,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**GitHub, October 3, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
+	WriteLine "**GitHub, October 4, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
