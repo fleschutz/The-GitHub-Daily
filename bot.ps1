@@ -40,6 +40,17 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
+	Write-Host "⏳ (1/4) Searching for Git executable..."
+        $null = (git --version)
+        if ($lastExitCode -ne "0") { throw "Can't execute 'git --version' - make sure Git is installed and available" }
+
+        Write-Host "⏳ (2/4) Searching for GitHub CLI executable..."
+        $null = (gh --version)
+        if ($lastExitCode -ne "0") { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
+
+	Write-Host "⏳ (3/4) Writing README.md..."
+        [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
+        $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
 	WriteLine "📰 The Daily GitHub News"
 	WriteLine "========================"
@@ -54,7 +65,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**GitHub, October 4, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
+	WriteLine "**GitHub, $today, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -154,6 +165,18 @@ try {
 	$ln += Repo "Terraform"          "hashicorp/terraform" "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant" ""
 	WriteLine "And last but not least **DevOps** with: $ln`n"
+
+	Write-Host "⏳ (3/3) Committing README.md..."
+	& git add README.md
+	if ($lastExitCode -ne "0") { throw "Executing 'git add README.md' failed" }
+
+	& git commit -m "Updated README.md"
+	if ($lastExitCode -ne "0") { throw "Executing 'git commit' failed" }
+
+	& git push
+	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
+
+	Write-Host "✅ Done."
 	exit 0 # success
 } catch {
         "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
