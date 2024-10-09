@@ -48,12 +48,12 @@ try {
         & gh --version
         if ($lastExitCode -ne "0") { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "`n⏳ (3/4) Writing README.md..."
+	Write-Host "`n⏳ (3/4) Querying GitHub and writing README.md..."
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
-	WriteLine "📰 The Daily GitHub News"
-	WriteLine "========================"
+	WriteLine "📰 Daily GitHub News"
+	WriteLine "===================="
 	WriteLine ""
 
 	$ln = Repo "curl"                "curl/curl"                   "curl-*"
@@ -65,7 +65,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**GitHub, $today, by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
+	WriteLine "**$($today)@GitHub by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -85,12 +85,11 @@ try {
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"          ""
-	$ln += Repo "NetBeans"           "apache/netbeans"             ""
-	$ln += Repo "NeoVim"             "neovim/neovim"               "v*"
-	$ln += Repo "TextMate"           "textmate/textmate"           "v*"
 	$ln += Repo "Nano"               "madnight/nano"               ""
+	$ln += Repo "NetBeans"           "apache/netbeans"             ""
 	$ln += Repo "Neovim"             "neovim/neovim"               "v*"
 	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus" "v*"
+	$ln += Repo "TextMate"           "textmate/textmate"           "v*"
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
