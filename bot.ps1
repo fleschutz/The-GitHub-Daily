@@ -78,7 +78,7 @@ try {
 	$ln += Repo "OBS Studio"         "obsproject/obs-studio"       ""
 	$ln += Repo "PowerToys"          "microsoft/PowerToys"         "v*"
 	$ln += Repo "VLC"                "videolan/vlc"                ""
-	$ln += Repo "Winamp"             "WinampDesktop/winamp"        ""
+#	$ln += Repo "Winamp"             "WinampDesktop/winamp"        ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
 	WriteLine "Latest releases in **General Apps** are: $ln`n"
