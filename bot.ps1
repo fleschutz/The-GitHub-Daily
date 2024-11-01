@@ -23,7 +23,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($release.published_at)" -like "2024-10-*") { $version += "🆕" }
+		if ("$($release.published_at)" -like "2024-11-*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 
@@ -33,7 +33,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		if ($version -like $versionPrefix) {
 			$version = $version.Substring($versionPrefix.Length - 1)
 		}
-		if ("$($tag.published_at)" -like "2024-10-*") { $version += "🆕" }
+		if ("$($tag.published_at)" -like "2024-11-*") { $version += "🆕" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return "[$name](https://github.com/$URLpart), "
