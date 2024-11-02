@@ -109,7 +109,7 @@ try {
 	$ln += Repo "Julia"              "JuliaLang/julia"               "v*"
 	$ln += Repo "Kotlin"             "JetBrains/kotlin"              "v*"
 	$ln += Repo "MicroPython"        "micropython/micropython"       "v*"
-	$ln += Repo "Mojo"               "modularml/mojo"                "v*"
+	$ln += Repo "Mojo"               "modularml/mojo"                "mojo/v*"
 	$ln += Repo "Nim"                "nim-lang/Nim"                  "v*"
 	$ln += Repo "Odin"               "odin-lang/Odin"                ""
 	$ln += Repo "Orca"               "hundredrabbits/Orca"           ""
