@@ -17,7 +17,7 @@ function WriteLine([string]$line) {
 }
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
-	$releases = (gh api /repos/$URLpart/releases?per_page=9 --method GET) | ConvertFrom-Json
+	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	if ($releases.Count -gt 0) {
 		$latestReleases = (gh api /repos/$URLpart/releases/latest --method GET) | ConvertFrom-Json
 		foreach($release in $latestReleases) {
@@ -34,14 +34,15 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
-	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
+	$tags = (gh api /repos/$URLpart/tags --method GET) | ConvertFrom-Json
+	$bestVersion = ""
 	foreach($tag in $tags) {
-		$version = $tag.name
-		if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-		if ("$($tag.published_at)" -like "2024-11-*") { $version += "🔖" }
-		return "[$name](https://github.com/$URLpart) $version, "
+		if ("$($tag.name)" -lt $bestVersion) { continue }
+		$bestVersion = $tag.name
+		if ("$($tag.published_at)" -like "2024-11-*") { $bestVersion += "🔖" }
 	}
-	return "[$name](https://github.com/$URLpart), "
+	if (($bestVersion -ne "") -and ($bestVersion -like $versionPrefix)) { $bestVersion = $bestVersion.Substring($versionPrefix.Length - 1) }
+	return "[$name](https://github.com/$URLpart) $bestVersion, "
 }
 
 try {
