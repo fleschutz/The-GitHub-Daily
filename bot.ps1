@@ -175,7 +175,7 @@ try {
 	& git push
 	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
 
-	Write-Host "✅ Done."
+	Write-Host "✅ Updated repo 'whats-new' - visit it at: https://github.com/fleschutz/whats-new"
 	exit 0 # success
 } catch {
         "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
