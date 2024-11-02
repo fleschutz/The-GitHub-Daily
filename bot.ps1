@@ -2,7 +2,7 @@
 .SYNOPSIS
         Generates 'The Daily GitHub News'
 .DESCRIPTION
-        This PowerShell script writes the text content for 'The Daily GitHub News' into README.md.
+        This PowerShell script writes the text content for 'Daily GitHub News' into README.md.
 	Required is GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
@@ -17,7 +17,14 @@ function WriteLine([string]$line) {
 }
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
-	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
+	$releases = (gh api /repos/$URLpart/releases?per_page=9 --method GET) | ConvertFrom-Json
+	foreach($release in $releases) {
+		if ($release.prerelease -eq "true") { continue }
+		$version = $release.tag_name
+		if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+		if ("$($release.published_at)" -like "2024-11-*") { $version += "🎉" }
+		return "[$name](https://github.com/$URLpart) $version, "
+	}
 	foreach($release in $releases) {
 		$version = $release.tag_name
 		if ($version -like $versionPrefix) {
@@ -30,25 +37,19 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
 	foreach($tag in $tags) {
 		$version = $tag.name
-		if ($version -like $versionPrefix) {
-			$version = $version.Substring($versionPrefix.Length - 1)
-		}
-		if ("$($tag.published_at)" -like "2024-11-*") { $version += "🆕" }
+		if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+		if ("$($tag.published_at)" -like "2024-11-*") { $version += "🔖" }
 		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return "[$name](https://github.com/$URLpart), "
 }
 
 try {
-	Write-Host "⏳ (1/4) Searching for Git executable..."
-        & git --version
-        if ($lastExitCode -ne "0") { throw "Can't execute 'git --version' - make sure Git is installed and available" }
-
-        Write-Host "`n⏳ (2/4) Searching for GitHub CLI executable..."
+        Write-Host "`n⏳ (1/3) Searching for GitHub CLI..."
         & gh --version
         if ($lastExitCode -ne "0") { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "`n⏳ (3/4) Querying GitHub and writing README.md..."
+	Write-Host "`n⏳ (2/3) Querying GitHub and writing README.md..."
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
@@ -65,7 +66,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**$($today)@GitHub by bot.ps1 -** The latest releases or tags of **Featured** GitHub repositories this month are: $ln`n"
+	WriteLine "**Today@GitHub:** The latest **November** releases or tags of **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -78,7 +79,6 @@ try {
 	$ln += Repo "OBS Studio"         "obsproject/obs-studio"       ""
 	$ln += Repo "PowerToys"          "microsoft/PowerToys"         "v*"
 	$ln += Repo "VLC"                "videolan/vlc"                ""
-#	$ln += Repo "Winamp"             "WinampDesktop/winamp"        ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
 	WriteLine "Latest releases in **General Apps** are: $ln`n"
@@ -149,23 +149,25 @@ try {
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
 	WriteLine "Looking at **Compiler &amp; Build Systems** we have: $ln`n"
 
-	$ln = Repo "Ansible"             "ansible/ansible" "v*"
+	$ln = Repo "Ansible"             "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
-	$ln += Repo "Chef"               "chef/chef" "v*"
-	$ln += Repo "Grafana"            "grafana/grafana" "v*"
-	$ln += Repo "Jenkins"            "jenkinsci/jenkins" "jenkins-*"
+	$ln += Repo "Chef"               "chef/chef"             "v*"
+	$ln += Repo "Grafana"            "grafana/grafana"       "v*"
+	$ln += Repo "Jenkins"            "jenkinsci/jenkins"     "jenkins-*"
 	$ln += Repo "Kubernetes"         "kubernetes/kubernetes" "v*"
-	$ln += Repo "Moby"               "moby/moby" "v*"
-	$ln += Repo "OpenStack"          "openstack/openstack" ""
+	$ln += Repo "Moby"               "moby/moby"             "v*"
+	$ln += Repo "OpenStack"          "openstack/openstack"   ""
 	$ln += Repo "Prometheus"         "prometheus/prometheus" "v*"
-	$ln += Repo "Puppet"             "puppetlabs/puppet"  ""
-	$ln += Repo "Salt"               "saltstack/salt" "v*"
-	$ln += Repo "statsd"             "statsd/statsd" ""
-	$ln += Repo "Terraform"          "hashicorp/terraform" "v*"
-	$ln += Repo "Vagrant"            "hashicorp/vagrant" ""
+	$ln += Repo "Puppet"             "puppetlabs/puppet"     ""
+	$ln += Repo "Salt"               "saltstack/salt"        "v*"
+	$ln += Repo "statsd"             "statsd/statsd"         "v*"
+	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
+	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with: $ln`n"
 
-	Write-Host "`n⏳ (4/4) Committing README.md..."
+	WriteLine "Generated by [bot.ps1](bot.ps1) 0.1 as of $($today).`n"
+
+	Write-Host "`n⏳ (3/3) Committing and pushing updated README.md..."
 	& git add README.md
 	if ($lastExitCode -ne "0") { throw "Executing 'git add README.md' failed" }
 
@@ -175,7 +177,8 @@ try {
 	& git push
 	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
 
-	Write-Host "✅ Updated repo 'whats-new' - visit it at: https://github.com/fleschutz/whats-new"
+	Write-Host "✅ Updated repo 'whats-new'. Ctrl + click here to visit it: " -noNewline
+	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
         "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
