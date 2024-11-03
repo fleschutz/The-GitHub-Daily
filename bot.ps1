@@ -1,6 +1,6 @@
 ﻿<#
 .SYNOPSIS
-        Generates 'The Daily GitHub News'
+        The bot writing the 'Daily GitHub News'
 .DESCRIPTION
         This PowerShell script writes the text content for 'Daily GitHub News' into README.md.
 	Required is GitHub CLI.
@@ -12,37 +12,42 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
+param([string]$datePattern = "2024-11-*")
+
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
 }
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
+	Write-Host "." -noNewline
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	if ($releases.Count -gt 0) {
-		$latestReleases = (gh api /repos/$URLpart/releases/latest --method GET) | ConvertFrom-Json
+		$latestReleases = (gh api /repos/$URLpart/releases/latest?per_page=9 --method GET) | ConvertFrom-Json
 		foreach($release in $latestReleases) {
 			if ($release.prerelease -eq "true") { continue }
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like "2024-11-*") { $version += "🎉" }
+			if ("$($release.published_at)" -like $datePattern) { $version += "🆕" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 		foreach($release in $releases) {
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like "2024-11-*") { $version += "🆕" }
+			if ("$($release.published_at)" -like $datePattern) { $version += "🆕" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
-	$tags = (gh api /repos/$URLpart/tags --method GET) | ConvertFrom-Json
-	$bestVersion = ""
+	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
+	$version = ""
 	foreach($tag in $tags) {
-		if ("$($tag.name)" -lt $bestVersion) { continue }
-		$bestVersion = $tag.name
-		if ("$($tag.published_at)" -like "2024-11-*") { $bestVersion += "🔖" }
+		$version = $tag.name
+		if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+		$commitID = $tag.commit.sha
+		$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
+		$commitDate = $commit.commit.committer.date
+		if ($commitDate -like $datePattern) { $version += "🔖" }
 	}
-	if (($bestVersion -ne "") -and ($bestVersion -like $versionPrefix)) { $bestVersion = $bestVersion.Substring($versionPrefix.Length - 1) }
-	return "[$name](https://github.com/$URLpart) $bestVersion, "
+	return "[$name](https://github.com/$URLpart) $version, "
 }
 
 try {
@@ -50,7 +55,7 @@ try {
         & gh --version
         if ($lastExitCode -ne "0") { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "`n⏳ (2/3) Querying GitHub and writing README.md..."
+	Write-Host "`n⏳ (2/3) Querying GitHub and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
@@ -67,7 +72,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**Today@GitHub:** The latest **November** releases or tags of **Featured** GitHub repositories are: $ln`n"
+	WriteLine "**Today@GitHub:** The latest **November** releases (or tags) of **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -98,10 +103,10 @@ try {
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
-	$ln += Repo "Clojure"            "clojure/clojure"               ""
+	$ln += Repo "Clojure"            "clojure/clojure"               "clojure-*"
 	$ln += Repo "CoffeeScript"       "jashkenas/coffeescript"        ""
 	$ln += Repo "Crystal"            "crystal-lang/crystal"          ""
-	$ln += Repo "Go"                 "golang/go"                     ""
+	$ln += Repo "Go"                 "golang/go"                     "go*"
 	$ln += Repo "Elixir"             "elixir-lang/elixir"            "v*"
 	$ln += Repo "Elm"                "elm/compiler"                  ""
 	$ln += Repo "Erlang"             "erlang/otp"                    "OTP-*"
@@ -132,6 +137,8 @@ try {
 	$ln += Repo "libgit2"            "libgit2/libgit2"         "v*"
 	$ln += Repo "libyuv"             "lemenkov/libyuv"         ""
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
+	$ln += Repo "OpenEXR"            "AcademySoftwareFoundation/openexr" "v*"
+	$ln += Repo "OpenVDB"            "AcademySoftwareFoundation/openvdb" "v*"
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
