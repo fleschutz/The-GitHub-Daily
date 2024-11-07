@@ -185,7 +185,7 @@ try {
 	& git push
 	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
 
-	Write-Host "✅ Updated repo 'whats-new'. Ctrl + click here to visit it: " -noNewline
+	Write-Host "✅ Updated repo 'whats-new' successfully. Visit it by Ctrl + click: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
