@@ -72,7 +72,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**GitHub:** The latest **November** releases (or tags) of **Featured** GitHub repositories are $ln`n"
+	WriteLine "**GitHub:** The very latest **November** releases (or tags) of **Featured** GitHub repositories are $ln`n"
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
@@ -83,7 +83,9 @@ try {
 	$ln += Repo "LibreOffice"        "LibreOffice/core"            ""
 	$ln += Repo "Meld"               "GNOME/meld"                  "split-*"
 	$ln += Repo "OBS Studio"         "obsproject/obs-studio"       ""
+	$ln += Repo "OctoPrint"          "OctoPrint/OctoPrint"         ""
 	$ln += Repo "PowerToys"          "microsoft/PowerToys"         "v*"
+	$ln += Repo "PrusaSlicer"        "prusa3d/PrusaSlicer"         "version_*"
 	$ln += Repo "VLC"                "videolan/vlc"                ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
@@ -173,7 +175,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "Updated $today by 🤖[bot.ps1](bot.ps1). Legend: 🆕 = new release, 🔖 = new tag `n"
+	WriteLine "Updated $today by our friendly 🤖[bot.ps1](bot.ps1). Legend: 🆕 = new release, 🔖 = new tag (in November).`n"
 
 	Write-Host "`n⏳ (3/3) Committing and pushing updated README.md..."
 	& git add README.md
