@@ -71,6 +71,7 @@ try {
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
+	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl/"        ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	WriteLine "**GitHub:** The very latest **November** releases (or tags) of **Featured** GitHub repositories are $ln`n"
 
