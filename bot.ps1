@@ -76,6 +76,7 @@ try {
 
 	$ln = Repo "Blender"             "blender/blender"             "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
+	$ln += Repo "Dopamine"           "digimezzo/dopamine-windows"  "v*"
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
 	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "v*"
 	$ln += Repo "GIMP"               "GNOME/gimp"                  ""
