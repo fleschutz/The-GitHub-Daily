@@ -12,7 +12,7 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
-param([string]$datePattern = "2024-11-*")
+param([string]$datePattern = "2024-12-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
@@ -73,7 +73,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl"         ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**GitHub:** The very latest **November** releases (or tags) of **Featured** GitHub repositories are $ln`n"
+	WriteLine "**GitHub:** The very latest **December** releases (or tags) of **Featured** GitHub repositories are $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
