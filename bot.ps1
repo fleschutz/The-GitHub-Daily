@@ -82,7 +82,6 @@ try {
 	$ln += Repo "Dopamine"           "digimezzo/dopamine-windows"  "v*"
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
 	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "v*"
-	$ln += Repo "ghostwriter"        "KDE/ghostwriter"             ""
 	$ln += Repo "GIMP"               "GNOME/gimp"                  ""
 	$ln += Repo "Git Extensions"     "gitextensions/gitextensions" "v*"
 	$ln += Repo "LibreOffice"        "LibreOffice/core"            ""
@@ -99,6 +98,7 @@ try {
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
+	$ln += Repo "ghostwriter"        "KDE/ghostwriter"             ""
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"          ""
 	$ln += Repo "Nano"               "madnight/nano"               ""
 	$ln += Repo "NetBeans"           "apache/netbeans"             ""
