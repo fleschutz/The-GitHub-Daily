@@ -141,6 +141,7 @@ try {
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
+	$ln += Repo "DeepSeek-V3"        "deepseek-ai/DeepSeek-V3" "*"
 	$ln += Repo "libarchive"         "libarchive/libarchive"   "v*"
 	$ln += Repo "libexpat"           "libexpat/libexpat"       "R_*"
 	$ln += Repo "libgit2"            "libgit2/libgit2"         "v*"
