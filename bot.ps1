@@ -142,6 +142,7 @@ try {
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
 	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" "*"
+	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   "*"
 	$ln += Repo "libarchive"         "libarchive/libarchive"   "v*"
 	$ln += Repo "libexpat"           "libexpat/libexpat"       "R_*"
 	$ln += Repo "libgit2"            "libgit2/libgit2"         "v*"
@@ -152,7 +153,7 @@ try {
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
-	WriteLine "In **Software Libs** and **ML** the latest releases/tags are $ln`n"
+	WriteLine "In **Software Libs** and **AI** the latest and greatest are $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          ""
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
@@ -195,7 +196,7 @@ try {
 	& git push
 	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
 
-	Write-Host "✅ Repo 'whats-new' has been updated. Use <Ctrl> + left mouse click to visit: " -noNewline
+	Write-Host "✅ Updated repo 'whats-new' successfully. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
