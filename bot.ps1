@@ -3,7 +3,7 @@
         The bot writing the 'Daily GitHub Overview'
 .DESCRIPTION
         This PowerShell script writes the text content for the 'Daily GitHub Overview' into README.md.
-	Required is GitHub CLI.
+	Required is the installation of Git and GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
@@ -184,7 +184,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 = new project this month, 🎉 = new release this month, 🔖 = new tag this month, updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
+	WriteLine "**Legend:** 🆕 = new project (this month), 🎉 = new release (this month), 🔖 = new tag (this month), updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
 
 	Write-Host "`n⏳ (3/3) Committing and pushing updated README.md..."
 	& git add README.md
@@ -196,7 +196,7 @@ try {
 	& git push
 	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
 
-	Write-Host "✅ Updated repo 'whats-new' successfully. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "✅ Repo 'whats-new' updated successfully. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
