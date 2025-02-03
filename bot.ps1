@@ -184,7 +184,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 = new project (this month), 🎉 = new release (this month), 🔖 = new tag (this month), updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
+	WriteLine "**Legend:** 🆕 = new project (this month), 🎉 = new release (this month), 🔖 = new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
 
 	Write-Host "`n⏳ (3/3) Committing and pushing updated README.md..."
 	& git add README.md
