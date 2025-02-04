@@ -150,6 +150,7 @@ try {
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
 	$ln += Repo "OpenEXR"            "AcademySoftwareFoundation/openexr" "v*"
 	$ln += Repo "OpenVDB"            "AcademySoftwareFoundation/openvdb" "v*"
+	$ln += Repo "Plog"               "SergiusTheBest/plog"     "*"
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
