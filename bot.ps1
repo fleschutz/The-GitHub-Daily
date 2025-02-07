@@ -73,7 +73,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl"         ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "The very latest **February** releases of **Featured** GitHub repositories are: $ln`n"
+	WriteLine "Today, the very latest releases of **Featured** GitHub repositories in **February** are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
