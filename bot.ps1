@@ -82,6 +82,7 @@ try {
 	$ln += Repo "Dopamine"           "digimezzo/dopamine-windows"  "v*"
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
 	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "v*"
+	$ln += Repo "FreeRDP"            "FreeRDP/FreeRDP"             ""
 	$ln += Repo "GIMP"               "GNOME/gimp"                  ""
 	$ln += Repo "Git Extensions"     "gitextensions/gitextensions" "v*"
 	$ln += Repo "LibreOffice"        "LibreOffice/core"            ""
