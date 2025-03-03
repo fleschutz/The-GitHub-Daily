@@ -51,15 +51,15 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/4) Searching for GitHub CLI... " -noNewline
+        Write-Host "⏳ (1/5) Searching for GitHub CLI...     " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "⏳ (2/4) Pulling latest updates...   " -noNewline
+	Write-Host "⏳ (2/5) Pulling latest updates...       " -noNewline
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "⏳ (3/4) Querying GitHub and writing README.md..." -noNewline
+	Write-Host "⏳ (3/5) Querying GitHub and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
@@ -192,13 +192,14 @@ try {
 
 	WriteLine "**Legend:** 🆕 = new project (this month), ✨ = new release (this month), 🔖 = new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
 
-	Write-Host "`n⏳ (4/4) Committing and pushing updated README.md..."
+	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
 	if ($lastExitCode -ne 0) { throw "Executing 'git add README.md' failed with exit code $lastExitCode" }
 
 	& git commit -m "Updated README.md"
 	if ($lastExitCode -ne 0) { throw "Executing 'git commit' failed with exit code $lastExitCode" }
 
+	Write-Host "`n⏳ (5/5) Pushing updated README.md..."
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
