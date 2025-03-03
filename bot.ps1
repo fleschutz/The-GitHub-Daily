@@ -203,7 +203,7 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Repo 'whats-new' updated successfully. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "✅ Repo updated successfully. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
