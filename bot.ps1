@@ -51,11 +51,11 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/5) Searching for GitHub CLI...         " -noNewline
+        Write-Host "⏳ (1/5) Searching for GitHub CLI...            " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "⏳ (2/5) Pulling latest repo updates...      " -noNewline
+	Write-Host "⏳ (2/5) Pulling latest repo updates...         " -noNewline
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
@@ -192,7 +192,7 @@ try {
 
 	WriteLine "**Legend:** 🆕 = new project (this month), ✨ = new release (this month), 🔖 = new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
 
-	Write-Host "⏳ (4/5) Committing updated README.md..."
+	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
 	if ($lastExitCode -ne 0) { throw "Executing 'git add README.md' failed with exit code $lastExitCode" }
 
