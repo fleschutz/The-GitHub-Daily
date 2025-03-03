@@ -51,15 +51,15 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "`n⏳ (1/4) Searching for GitHub CLI..."
+        Write-Host "⏳ (1/4) Searching for GitHub CLI... " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "`n⏳ (2/4) Pulling latest updates..."
+	Write-Host "⏳ (2/4) Pulling latest updates...   " -noNewline
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "`n⏳ (2/4) Querying GitHub and writing README.md..." -noNewline
+	Write-Host "⏳ (3/4) Querying GitHub and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
