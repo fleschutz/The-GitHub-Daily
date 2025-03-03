@@ -51,11 +51,15 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "`n⏳ (1/3) Searching for GitHub CLI..."
+        Write-Host "`n⏳ (1/4) Searching for GitHub CLI..."
         & gh --version
-        if ($lastExitCode -ne "0") { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
+        if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "`n⏳ (2/3) Querying GitHub and writing README.md..." -noNewline
+	Write-Host "`n⏳ (2/4) Pulling latest updates..."
+        & git pull
+        if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
+
+	Write-Host "`n⏳ (2/4) Querying GitHub and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
@@ -188,15 +192,15 @@ try {
 
 	WriteLine "**Legend:** 🆕 = new project (this month), ✨ = new release (this month), 🔖 = new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
 
-	Write-Host "`n⏳ (3/3) Committing and pushing updated README.md..."
+	Write-Host "`n⏳ (4/4) Committing and pushing updated README.md..."
 	& git add README.md
-	if ($lastExitCode -ne "0") { throw "Executing 'git add README.md' failed" }
+	if ($lastExitCode -ne 0) { throw "Executing 'git add README.md' failed with exit code $lastExitCode" }
 
 	& git commit -m "Updated README.md"
-	if ($lastExitCode -ne "0") { throw "Executing 'git commit' failed" }
+	if ($lastExitCode -ne 0) { throw "Executing 'git commit' failed with exit code $lastExitCode" }
 
 	& git push
-	if ($lastExitCode -ne "0") { throw "Executing 'git push' failed" }
+	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
 	Write-Host "✅ Repo 'whats-new' updated successfully. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
