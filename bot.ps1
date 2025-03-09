@@ -105,6 +105,7 @@ try {
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
 	$ln += Repo "ghostwriter"        "KDE/ghostwriter"             ""
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"          ""
+	$ln += Repo "Helix"              "helix-editor/helix"          ""
 	$ln += Repo "Nano"               "madnight/nano"               ""
 	$ln += Repo "NetBeans"           "apache/netbeans"             ""
 	$ln += Repo "Neovim"             "neovim/neovim"               "v*"
