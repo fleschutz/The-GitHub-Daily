@@ -191,7 +191,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 = new project (this month), ✨ = new release (this month), 🔖 = new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1).`n"
+	WriteLine "**Legend:** 🆕 *= new project (this month),* ✨ *= new release (this month),* 🔖 *= new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1)*.`n"
 
 	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
@@ -208,6 +208,6 @@ try {
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
-        "⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
-        exit 1
+	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
+	exit 1
 }
