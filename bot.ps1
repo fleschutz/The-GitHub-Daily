@@ -96,6 +96,7 @@ try {
 	$ln += Repo "OctoPrint"          "OctoPrint/OctoPrint"         ""
 	$ln += Repo "PowerToys"          "microsoft/PowerToys"         "v*"
 	$ln += Repo "PrusaSlicer"        "prusa3d/PrusaSlicer"         "version_*"
+	$ln += Repo "Serenade"           "serenadeai/serenade"         ""
 	$ln += Repo "VLC"                "videolan/vlc"                ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
