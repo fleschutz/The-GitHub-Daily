@@ -75,9 +75,8 @@ try {
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
-	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl"         ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest **March** releases in **Featured** GitHub repositories are: $ln`n"
+	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest **March** releases in **Featured** GitHub repositories are $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -205,7 +204,7 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Repo updated successfully. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "✅ Update succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
