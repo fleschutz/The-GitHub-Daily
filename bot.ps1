@@ -1,9 +1,9 @@
 ﻿<#
 .SYNOPSIS
-        The bot writing the 'Daily GitHub Overview'
+        The bot writing 'The Daily GitHub'
 .DESCRIPTION
-        This PowerShell script writes the text content for the 'Daily GitHub Overview' into README.md.
-	Required is the installation of Git and GitHub CLI.
+        This PowerShell script writes the text content for 'The Daily GitHub' into README.md.
+	Required is Git and GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
@@ -12,7 +12,7 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
-param([string]$datePattern = "2025-02-*")
+param([string]$datePattern = "2025-03-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
@@ -63,8 +63,8 @@ try {
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
-	WriteLine "📰 Daily GitHub Overview"
-	WriteLine "========================"
+	WriteLine "📰 The Daily GitHub"
+	WriteLine "==================="
 	WriteLine ""
 
 	$ln = Repo "curl"                "curl/curl"                   "curl-*"
@@ -77,7 +77,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl"         ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "Today, the very latest releases of **Featured** GitHub repositories in **February** are: $ln`n"
+	WriteLine "By 🤖[bot.ps1](bot.ps1): Today, the very latest releases of **Featured** GitHub repositories in **March** are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
