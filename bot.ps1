@@ -77,7 +77,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "youtube-dl"         "ytdl-org/youtube-dl"         ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "By 🤖[bot.ps1](bot.ps1): Today, the very latest releases of **Featured** GitHub repositories in **March** are: $ln`n"
+	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest **March** releases in **Featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -192,7 +192,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project (this month),* ✨ *= new release (this month),* 🔖 *= new tag (this month). Updated $today by our friendly 🤖[bot.ps1](bot.ps1)*.`n"
+	WriteLine "**Legend:** 🆕 *= new project (this month),* ✨ *= new release (this month),* 🔖 *= new tag (this month)*. Updated $today`n"
 
 	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
