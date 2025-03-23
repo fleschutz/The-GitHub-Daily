@@ -12,7 +12,7 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
-param([string]$datePattern = "2025-03-*")
+param([string]$month = "March", [string]$searchPattern = "2025-03-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
@@ -27,13 +27,13 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ($release.prerelease -eq "true") { continue }
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like $datePattern) { $version += "✨" }
+			if ("$($release.published_at)" -like $searchPattern) { $version += "✨" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 		foreach($release in $releases) {
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like $datePattern) { $version += "✨" }
+			if ("$($release.published_at)" -like $searchPattern) { $version += "✨" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -45,7 +45,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		$commitID = $tag.commit.sha
 		$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
 		$commitDate = $commit.commit.committer.date
-		if ($commitDate -like $datePattern) { $version += "🔖" }
+		if ($commitDate -like $searchPattern) { $version += "🔖" }
 	}
 	return "[$name](https://github.com/$URLpart) $version, "
 }
@@ -76,7 +76,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest **March** releases in **Featured** GitHub repositories are $ln`n"
+	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest **$month** releases in **Featured** GitHub repositories are $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -191,7 +191,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project (this month),* ✨ *= new release (this month),* 🔖 *= new tag (this month)*. Updated $today`n"
+	WriteLine "**Legend:** 🆕 *= new project (in $month),* ✨ *= new release (in $month),* 🔖 *= new tag (in $month)*. Updated $today`n"
 
 	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
