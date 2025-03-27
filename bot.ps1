@@ -191,7 +191,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project (in $month),* ✨ *= new release (in $month),* 🔖 *= new tag (in $month)*. Updated $today`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* ✨ *= new release in $month,* 🔖 *= new tag in $month*. Updated $today`n"
 
 	Write-Host "`n⏳ (4/5) Committing updated README.md..."
 	& git add README.md
@@ -204,7 +204,7 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Update succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "✅ Update of 'The Daily GitHub' succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
