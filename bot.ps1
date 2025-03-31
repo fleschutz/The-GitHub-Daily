@@ -143,12 +143,13 @@ try {
 	$ln += Repo "Scala"              "scala/scala"                   "v*"
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
+	$ln += Repo "Zig"                "ziglang/zig"                   ""
 	WriteLine "In **Programming Languages** it's $ln`n"
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
-	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" "*"
-	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   "*"
+	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" ""
+	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   ""
 	$ln += Repo "libarchive"         "libarchive/libarchive"   "v*"
 	$ln += Repo "libexpat"           "libexpat/libexpat"       "R_*"
 	$ln += Repo "libgit2"            "libgit2/libgit2"         "v*"
@@ -156,7 +157,7 @@ try {
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
 	$ln += Repo "OpenEXR"            "AcademySoftwareFoundation/openexr" "v*"
 	$ln += Repo "OpenVDB"            "AcademySoftwareFoundation/openvdb" "v*"
-	$ln += Repo "Plog"               "SergiusTheBest/plog"     "*"
+	$ln += Repo "Plog"               "SergiusTheBest/plog"     ""
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
@@ -204,7 +205,7 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Update of 'The Daily GitHub' succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "✅ Updated 'The Daily GitHub'. Use <Ctrl> + <click> to browse to: " -noNewline
 	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
 	exit 0 # success
 } catch {
