@@ -157,11 +157,12 @@ try {
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
 	$ln += Repo "OpenEXR"            "AcademySoftwareFoundation/openexr" "v*"
 	$ln += Repo "OpenVDB"            "AcademySoftwareFoundation/openvdb" "v*"
+	$ln += Repo "NVIDIA PhysX"       "NVIDIA-Omniverse/PhysX"  ""
 	$ln += Repo "Plog"               "SergiusTheBest/plog"     ""
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
-	WriteLine "In **Software Libs** and **AI** the latest and greatest are $ln`n"
+	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          ""
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
