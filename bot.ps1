@@ -181,7 +181,7 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteLine "Looking at **Compiler** and **Build Systems** we have $ln`n"
+	WriteLine "Looking at **Compiler** and **Build Systems** there's $ln`n"
 
 	$ln = Repo "Ansible"             "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
