@@ -1,13 +1,13 @@
 ﻿<#
 .SYNOPSIS
-        The bot writing 'The Daily GitHub'
+        The bot writing 'The GitHub Daily'
 .DESCRIPTION
-        This PowerShell script writes the text content for 'The Daily GitHub' into README.md.
-	Required is Git and GitHub CLI.
+        This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
+	Required is PowerShell, Git and GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
-        https://github.com/fleschutz/whats-new
+        https://github.com/fleschutz/TheGitHubDaily
 .NOTES
         Author: Markus Fleschutz | License: CC0
 #>
@@ -63,7 +63,7 @@ try {
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	Write-Output "" > README.md
-	WriteLine "📰 The Daily GitHub"
+	WriteLine "📰 The GitHub Daily"
 	WriteLine "==================="
 	WriteLine ""
 
@@ -147,6 +147,7 @@ try {
 	WriteLine "In **Programming Languages** it's $ln`n"
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
+	$ln += Repo "BitNet🆕"           "microsoft/BitNet"        ""
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
 	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" ""
 	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   ""
@@ -206,8 +207,8 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Updated 'The Daily GitHub'. Use <Ctrl> + <click> to browse to: " -noNewline
-	Write-Host "https://github.com/fleschutz/whats-new" -foregroundColor blue
+	Write-Host "✅ Update succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
+	Write-Host "https://github.com/fleschutz/TheGitHubDaily" -foregroundColor blue
 	exit 0 # success
 } catch {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
