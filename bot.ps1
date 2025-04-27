@@ -116,6 +116,7 @@ try {
 	$ln += Repo "Neovim"             "neovim/neovim"               "v*"
 	$ln += Repo "Notepad++"          "notepad-plus-plus/notepad-plus-plus" "v*"
 	$ln += Repo "TextMate"           "textmate/textmate"           "v*"
+	$ln += Repo "Typedown"           "byxiaozhi/Typedown"          ""
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
