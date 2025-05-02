@@ -153,7 +153,7 @@ try {
 	WriteLine "In **Programming Languages** it's $ln`n"
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
-	$ln += Repo "BitNet🆕"           "microsoft/BitNet"        ""
+	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
 	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" ""
 	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   ""
@@ -200,7 +200,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project in $month,* ✨ *= new release in $month,* 🔖 *= new tag in $month*. Updated $today`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* ✨ *= new release in $month,* 🔖 *= new tag in $month*, last update: $($today).`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
