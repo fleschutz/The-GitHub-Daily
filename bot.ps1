@@ -27,13 +27,13 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ($release.prerelease -eq "true") { continue }
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like $searchPattern) { $version += "✨" }
+			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 		foreach($release in $releases) {
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like $searchPattern) { $version += "✨" }
+			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -200,7 +200,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project in $month,* ✨ *= new release in $month,* 🔖 *= new tag in $month*, last update: $($today).`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in 2025,* last update: $($today).`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
