@@ -81,7 +81,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**By 🤖[bot.ps1](bot.ps1):** The latest releases of **Featured** GitHub repositories in **$month** are: $ln`n"
+	WriteLine "Today the latest releases of **Featured** GitHub repositories in **$month** are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -202,7 +202,7 @@ try {
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
 	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in 2025*.`n"
-	WriteLine "**Updated:** $($today)`n"
+	WriteLine "**Updated:** $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
@@ -215,8 +215,9 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Update succeeded. Use <Ctrl> + <click> to browse to: " -noNewline
-	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue
+	Write-Host "✅ Update succeeded, see: " -noNewline
+	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
+	Write-Host " (use <Ctrl> + <click>)"
 	exit 0 # success
 } catch {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
