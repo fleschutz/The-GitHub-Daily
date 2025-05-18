@@ -75,6 +75,7 @@ try {
 	$ln = Repo "curl"                "curl/curl"                   "curl-*"
 	$ln += Repo "Git"                "git/git"                     "v*"
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
+	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
 	$ln += Repo "Linux"              "torvalds/linux"              "v*"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
