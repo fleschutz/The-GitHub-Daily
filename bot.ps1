@@ -32,18 +32,20 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
+	$activity = (gh api /repos/$URLpart/activity?per_page=1 --method GET) | ConvertFrom-Json
+	if ($activity.Count -ge 1) {
+		if ("$($activity.timestamp)" -lt "2025-01") { return "[$name](https://github.com/$URLpart) $($version)💤, " }
+	}
 	$tags = (gh api /repos/$URLpart/tags?per_page=99 --method GET) | ConvertFrom-Json
 	if ($tags.Count -ge 1) {
 		foreach($tag in $tags) {
 			$commit = (gh api /repos/$URLpart/commits/$($tag.commit.sha) --method GET) | ConvertFrom-Json
 			$commitDate = $commit.commit.committer.date
-			if ($commitDate -notlike "2025-*") { continue }
 			$version = $tag.name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			if ($commitDate -like $searchPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
-		return "[$name](https://github.com/$URLpart) $($version)💤, "
 	}
 	return "[$name](https://github.com/$URLpart), "
 }
@@ -201,7 +203,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in 2025*.`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in last quarter*.`n"
 	WriteLine "**Statistics:** $($global:numRepos) repos scanned, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
