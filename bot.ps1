@@ -32,7 +32,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
-	$tags = (gh api /repos/$URLpart/tags?per_page=19 --method GET) | ConvertFrom-Json
+	$tags = (gh api /repos/$URLpart/tags?per_page=99 --method GET) | ConvertFrom-Json
 	if ($tags.Count -ge 1) {
 		foreach($tag in $tags) {
 			$commit = (gh api /repos/$URLpart/commits/$($tag.commit.sha) --method GET) | ConvertFrom-Json
