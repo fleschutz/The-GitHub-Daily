@@ -20,6 +20,7 @@ function WriteLine([string]$line) {
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 	Write-Host "." -noNewline
+	$global:numRepos++
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	if ($releases.Count -gt 0) {
 		$latestReleases = (gh api /repos/$URLpart/releases/latest?per_page=9 --method GET) | ConvertFrom-Json
@@ -64,9 +65,10 @@ try {
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "⏳ (5/7) Querying GitHub and writing README.md..." -noNewline
+	Write-Host "⏳ (5/7) Querying GitHub repos and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
+	$global:numRepos = 0
 	Write-Output "" > README.md
 	WriteLine "📰 The GitHub Daily"
 	WriteLine "==================="
@@ -203,7 +205,7 @@ try {
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
 	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in 2025*.`n"
-	WriteLine "**Updated:** $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**Statistics:** $($global:numRepos) repos, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
