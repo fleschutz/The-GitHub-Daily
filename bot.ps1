@@ -32,15 +32,14 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
-	$tags = (gh api /repos/$URLpart/tags?per_page=9 --method GET) | ConvertFrom-Json
+	$tags = (gh api /repos/$URLpart/tags?per_page=19 --method GET) | ConvertFrom-Json
 	if ($tags.Count -ge 1) {
 		foreach($tag in $tags) {
-			$version = $tag.name
-			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			$commitID = $tag.commit.sha
-			$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
+			$commit = (gh api /repos/$URLpart/commits/$($tag.commit.sha) --method GET) | ConvertFrom-Json
 			$commitDate = $commit.commit.committer.date
 			if ($commitDate -notlike "2025-*") { continue }
+			$version = $tag.name
+			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			if ($commitDate -like $searchPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
@@ -173,7 +172,7 @@ try {
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
 
-	$ln = Repo "Ant"                 "apache/ant"          ""
+	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
 	$ln += Repo "CMake"              "Kitware/CMake"       "v*"
 	$ln += Repo "Gradle"             "gradle/gradle"       "v*"
