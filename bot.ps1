@@ -22,7 +22,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 	Write-Host "." -noNewline
 	$global:numRepos++
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
-	if ($releases.Count -gt 0) {
+	if ($releases.Count -ge 1) {
 		$latestReleases = (gh api /repos/$URLpart/releases/latest?per_page=9 --method GET) | ConvertFrom-Json
 		foreach($release in $latestReleases) {
 			if ($release.prerelease -eq "true") { continue }
@@ -31,11 +31,11 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
-		foreach($release in $releases) {
-			$version = $release.tag_name
-			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
-			return "[$name](https://github.com/$URLpart) $version, "
+		#foreach($release in $releases) {
+		#	$version = $release.tag_name
+		#	if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+		#	if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
+		#	return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
 	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
@@ -47,6 +47,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
 		$commitDate = $commit.commit.committer.date
 		if ($commitDate -like $searchPattern) { $version += "🔖" }
+		return "[$name](https://github.com/$URLpart) $version, "
 	}
 	return "[$name](https://github.com/$URLpart) $version, "
 }
@@ -84,7 +85,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "As of today the latest releases of **featured** GitHub repositories in **$month** are: $ln`n"
+	WriteLine "Today the latest releases of **featured** GitHub repositories in **$month** are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
