@@ -31,25 +31,22 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
-		#foreach($release in $releases) {
-		#	$version = $release.tag_name
-		#	if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-		#	if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
-		#	return "[$name](https://github.com/$URLpart) $version, "
+	}
+	$tags = (gh api /repos/$URLpart/tags?per_page=9 --method GET) | ConvertFrom-Json
+	if ($tags.Count -ge 1) {
+		foreach($tag in $tags) {
+			$version = $tag.name
+			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+			$commitID = $tag.commit.sha
+			$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
+			$commitDate = $commit.commit.committer.date
+			if ($commitDate -notlike "2025-*") { continue }
+			if ($commitDate -like $searchPattern) { $version += "🔖" }
+			return "[$name](https://github.com/$URLpart) $version, "
 		}
+		return "[$name](https://github.com/$URLpart) $($version)💤, "
 	}
-	$tags = (gh api /repos/$URLpart/tags?per_page=1 --method GET) | ConvertFrom-Json
-	$version = ""
-	foreach($tag in $tags) {
-		$version = $tag.name
-		if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
-		$commitID = $tag.commit.sha
-		$commit = (gh api /repos/$URLpart/commits/$commitID --method GET) | ConvertFrom-Json
-		$commitDate = $commit.commit.committer.date
-		if ($commitDate -like $searchPattern) { $version += "🔖" }
-		return "[$name](https://github.com/$URLpart) $version, "
-	}
-	return "[$name](https://github.com/$URLpart) $version, "
+	return "[$name](https://github.com/$URLpart), "
 }
 
 try {
@@ -140,7 +137,7 @@ try {
 	$ln += Repo "Julia"              "JuliaLang/julia"               "v*"
 	$ln += Repo "Kotlin"             "JetBrains/kotlin"              "v*"
 	$ln += Repo "MicroPython"        "micropython/micropython"       "v*"
-	$ln += Repo "Mojo"               "modularml/mojo"                "mojo/v*"
+	$ln += Repo "Mojo"               "modularml/mojo"                "modular/v*"
 	$ln += Repo "Nim"                "nim-lang/Nim"                  "v*"
 	$ln += Repo "Odin"               "odin-lang/Odin"                ""
 	$ln += Repo "Orca"               "hundredrabbits/Orca"           ""
@@ -206,7 +203,7 @@ try {
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
 	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in 2025*.`n"
-	WriteLine "**Statistics:** $($global:numRepos) repos, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**Statistics:** $($global:numRepos) repos scanned, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
