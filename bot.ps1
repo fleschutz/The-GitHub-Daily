@@ -203,8 +203,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in last quarter*.`n"
-	WriteLine "**Statistics:** $($global:numRepos) repos scanned, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in last quarter*, $($global:numRepos) repos in total, updated $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
