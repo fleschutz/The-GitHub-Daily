@@ -203,7 +203,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*, $($global:numRepos) repos in total, updated $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*, scanned $($global:numRepos) repos, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
@@ -218,7 +218,7 @@ try {
 
 	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
-	Write-Host " succeeded (use Ctrl + click to follow link)."
+	Write-Host " succeeded (use Ctrl+click to follow link)."
 	exit 0 # success
 } catch {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
