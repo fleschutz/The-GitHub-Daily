@@ -203,7 +203,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity in last quarter*, $($global:numRepos) repos in total, updated $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**Legend:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*, $($global:numRepos) repos in total, updated $($today) by 🤖[bot.ps1](bot.ps1)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
@@ -216,9 +216,9 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Update succeeded, see: " -noNewline
+	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
-	Write-Host " (use <Ctrl> + <click>)"
+	Write-Host " succeeded (<Ctrl> + <click> to open link)"
 	exit 0 # success
 } catch {
 	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
