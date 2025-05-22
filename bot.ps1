@@ -26,8 +26,10 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 		$latestReleases = (gh api /repos/$URLpart/releases/latest?per_page=9 --method GET) | ConvertFrom-Json
 		foreach($release in $latestReleases) {
 			if ($release.prerelease -eq "true") { continue }
+			if ($release.draft -eq "true") { continue }
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+			$version = $version -Replace "_","."
 			if ("$($release.published_at)" -like $searchPattern) { $version += "🔅" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
