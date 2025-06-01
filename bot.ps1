@@ -12,7 +12,7 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
-param([string]$month = "May", [string]$searchPattern = "2025-05-*")
+param([string]$month = "June", [string]$searchPattern = "2025-06-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
@@ -36,7 +36,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 	}
 	$activity = (gh api /repos/$URLpart/activity?per_page=1 --method GET) | ConvertFrom-Json
 	if ($activity.Count -ge 1) {
-		if ("$($activity.timestamp)" -lt "2025-01") { return "[$name](https://github.com/$URLpart) $($version)💤, " }
+		if ("$($activity.timestamp)" -lt "2025-02") { return "[$name](https://github.com/$URLpart) $($version)💤, " }
 	}
 	$tags = (gh api /repos/$URLpart/tags?per_page=99 --method GET) | ConvertFrom-Json
 	if ($tags.Count -ge 1) {
