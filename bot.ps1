@@ -114,7 +114,7 @@ try {
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
-	$ln += Repo "Edit"               "microsoft/edit"              ""
+	$ln += Repo "Edit"               "microsoft/edit"              "v*"
 	$ln += Repo "ghostwriter"        "KDE/ghostwriter"             ""
 	$ln += Repo "GNU Emacs"          "emacs-mirror/emacs"          ""
 	$ln += Repo "Helix"              "helix-editor/helix"          ""
