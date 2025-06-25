@@ -127,7 +127,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteLine "In **Text Editors** and **IDEs** the latest are $ln`n"
+	WriteLine "In **Text Editors** and **IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
