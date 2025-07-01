@@ -12,7 +12,7 @@
         Author: Markus Fleschutz | License: CC0
 #>
 
-param([string]$month = "June", [string]$searchPattern = "2025-06-*")
+param([string]$month = "July", [string]$searchPattern = "2025-07-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
