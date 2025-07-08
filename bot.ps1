@@ -75,7 +75,8 @@ try {
 	WriteLine "==================="
 	WriteLine ""
 
-	$ln = Repo "curl"                "curl/curl"                   "curl-*"
+	 $ln = Repo "bitchat🆕"          "jackjackbits/bitchat"        ""
+	$ln += Repo "curl"               "curl/curl"                   "curl-*"
 	$ln += Repo "Git"                "git/git"                     "v*"
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
