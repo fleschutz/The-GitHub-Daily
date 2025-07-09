@@ -131,6 +131,7 @@ try {
 	WriteLine "In **Text Editors** and **IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
+	$ln += Repo "Bash"               "bminor/bash"                   "bash-*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
 	$ln += Repo "Clojure"            "clojure/clojure"               "clojure-*"
 	$ln += Repo "CoffeeScript"       "jashkenas/coffeescript"        ""
