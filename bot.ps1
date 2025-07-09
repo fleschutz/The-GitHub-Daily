@@ -3,7 +3,7 @@
         The bot writing 'The GitHub Daily'
 .DESCRIPTION
         This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
-	Required is PowerShell, Git and GitHub CLI.
+	Required is PowerShell 5.1+, Git 2.30+ and GitHub CLI.
 .EXAMPLE
         PS> ./bot.ps1
 .LINK
@@ -11,6 +11,8 @@
 .NOTES
         Author: Markus Fleschutz | License: CC0
 #>
+
+#requires -version 5.1
 
 param([string]$month = "July", [string]$searchPattern = "2025-07-*")
 
@@ -38,13 +40,14 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 	if ($activity.Count -ge 1) {
 		if ("$($activity.timestamp)" -lt "2025-02") { return "[$name](https://github.com/$URLpart) $($version)💤, " }
 	}
-	$tags = (gh api /repos/$URLpart/tags?per_page=99 --method GET) | ConvertFrom-Json
+	$tags = (gh api /repos/$URLpart/tags?per_page=999 --method GET) | ConvertFrom-Json
 	if ($tags.Count -ge 1) {
 		foreach($tag in $tags) {
 			$commit = (gh api /repos/$URLpart/commits/$($tag.commit.sha) --method GET) | ConvertFrom-Json
 			$commitDate = $commit.commit.committer.date
 			$version = $tag.name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
+			$version = $version -Replace "_","."
 			if ($commitDate -like $searchPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
