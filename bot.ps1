@@ -181,6 +181,7 @@ try {
 	$ln += Repo "SymCrypt"           "microsoft/SymCrypt"      "v*"
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
+	$ln += Repo "zstd"               "facebook/zstd"           "v*"
 	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
