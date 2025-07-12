@@ -85,6 +85,7 @@ try {
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
 	$ln += Repo "Linux"              "torvalds/linux"              "v*"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
+	$ln += Repo "Multipass"          "canonical/multipass"         "v*"
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
