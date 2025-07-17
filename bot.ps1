@@ -80,6 +80,7 @@ try {
 
 	 $ln = Repo "bitchat🆕"          "jackjackbits/bitchat"        ""
 	$ln += Repo "curl"               "curl/curl"                   "curl-*"
+	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Git"                "git/git"                     "v*"
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
@@ -115,7 +116,7 @@ try {
 	$ln += Repo "VLC"                "videolan/vlc"                ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **General Apps** it's $ln`n"
+	WriteLine "In **General Apps** we have $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -214,7 +215,9 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*, scanned $($global:numRepos) repos, last update: $($today) by 🤖[bot.ps1](bot.ps1)`n"
+	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*`n"
+
+	WriteLine "$($global:numRepos) repositories scanned by 🤖[bot.ps1](bot.ps1), last update: $($today)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
