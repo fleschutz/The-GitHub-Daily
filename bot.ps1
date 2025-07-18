@@ -74,8 +74,8 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteLine "📰 The GitHub Daily"
-	WriteLine "==================="
+	WriteLine "📰 The Daily GitHub Overview"
+	WriteLine "============================"
 	WriteLine ""
 
 	 $ln = Repo "bitchat🆕"          "jackjackbits/bitchat"        ""
@@ -97,9 +97,10 @@ try {
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
 	$ln += Repo "Brave"              "brave/brave-browser"         "v*"
+	$ln += Repo "Calibre"            "kovidgoyal/calibre"          "v*"
 	$ln += Repo "Chromium"           "chromium/chromium"           ""
-	$ln += Repo "Dopamine"           "digimezzo/dopamine-windows"  "v*"
 	$ln += Repo "CodeEdit"           "CodeEditApp/CodeEdit"        "v*"
+	$ln += Repo "Dopamine"           "digimezzo/dopamine-windows"  "v*"
 	$ln += Repo "FFmpeg"             "FFmpeg/FFmpeg"               "v*"
 	$ln += Repo "Firefox"            "mozilla-firefox/firefox"     ""
 	$ln += Repo "FreeRDP"            "FreeRDP/FreeRDP"             ""
