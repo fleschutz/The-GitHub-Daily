@@ -216,7 +216,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "Generated automatically by 🤖[bot.ps1](bot.ps1) (scanning $($global:numRepos) repos, last update: $($today))`n"
+	WriteLine "Generated automatically by 🤖[bot.ps1](bot.ps1) ($($global:numRepos) repos scanned, last update: $($today))`n"
 
 	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*`n"
 
