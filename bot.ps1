@@ -83,6 +83,7 @@ try {
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Git"                "git/git"                     "v*"
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
+	$ln += Repo "Jellyfin"           "jellyfin/jellyfin"           "v*"
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
 	$ln += Repo "Linux"              "torvalds/linux"              "v*"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
