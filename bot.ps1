@@ -56,12 +56,12 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) Searching for PowerShell...            $($PSVersionTable.PSVersion) $($PSVersionTable.PSEdition) edition"
-        Write-Host "⏳ (2/7) Searching for Git...                   " -noNewline
+        Write-Host "⏳ (1/7) Checking PowerShell...                 version $($PSVersionTable.PSVersion)"
+        Write-Host "⏳ (2/7) Checking Git...                        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
 
-        Write-Host "⏳ (3/7) Searching for GitHub CLI...            " -noNewline
+        Write-Host "⏳ (3/7) Checking GitHub CLI...                 " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
