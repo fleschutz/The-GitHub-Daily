@@ -74,8 +74,8 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteLine "📰 The Daily GitHub Overview"
-	WriteLine "============================"
+	WriteLine "📰 The GitHub Daily"
+	WriteLine "==================="
 	WriteLine ""
 
 	 $ln = Repo "bitchat🆕"          "jackjackbits/bitchat"        ""
@@ -93,7 +93,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "Today the latest releases of **featured** GitHub repositories in **$month** are: $ln`n"
+	WriteLine "G'day, in $month the latest releases of **featured repositories** are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
