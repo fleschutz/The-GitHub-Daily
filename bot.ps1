@@ -78,7 +78,7 @@ try {
 	WriteLine "==================="
 	WriteLine ""
 
-	 $ln = Repo "bitchat🆕"          "jackjackbits/bitchat"        ""
+	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "curl"               "curl/curl"                   "curl-*"
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Git"                "git/git"                     "v*"
@@ -171,7 +171,7 @@ try {
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
-	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" ""
+	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" "v*"
 	$ln += Repo "DeepSeek Janus"	 "deepseek-ai/Janus"	   ""
 	$ln += Repo "libarchive"         "libarchive/libarchive"   "v*"
 	$ln += Repo "libexpat"           "libexpat/libexpat"       "R_*"
