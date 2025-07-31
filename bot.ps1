@@ -56,20 +56,19 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) Checking PowerShell...                 version $($PSVersionTable.PSVersion)"
-        Write-Host "⏳ (2/7) Checking Git...                        " -noNewline
+        Write-Host "⏳ (1/6) Checking Git...                        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
 
-        Write-Host "⏳ (3/7) Checking GitHub CLI...                 " -noNewline
+        Write-Host "⏳ (2/6) Checking GitHub CLI...                 " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
-	Write-Host "⏳ (4/7) Pulling latest repo updates...         " -noNewline
+	Write-Host "⏳ (3/6) Pulling latest repo updates...         " -noNewline
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "⏳ (5/7) Querying GitHub repos and writing README.md..." -noNewline
+	Write-Host "⏳ (4/6) Querying GitHub repos and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
@@ -222,14 +221,14 @@ try {
 	WriteLine "**NOTE:** 🆕 *= new project in $month,* 🔅 *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90 days*`n"
 
 
-	Write-Host "`n⏳ (6/7) Committing updated README.md..."
+	Write-Host "`n⏳ (5/6) Committing updated README.md..."
 	& git add README.md
 	if ($lastExitCode -ne 0) { throw "Executing 'git add README.md' failed with exit code $lastExitCode" }
 
 	& git commit -m "Updated README.md"
 	if ($lastExitCode -ne 0) { throw "Executing 'git commit' failed with exit code $lastExitCode" }
 
-	Write-Host "⏳ (7/7) Pushing updated README.md..."
+	Write-Host "⏳ (6/6) Pushing updated README.md..."
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
@@ -238,6 +237,6 @@ try {
 	Write-Host " succeeded (use Ctrl+click to follow link)."
 	exit 0 # success
 } catch {
-	"⚠️ Error in line $($_.InvocationInfo.ScriptLineNumber): $($Error[0])"
+	"⚠️ ERROR: $($Error[0]) in script line $($_.InvocationInfo.ScriptLineNumber)"
 	exit 1
 }
