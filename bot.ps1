@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$month = "July", [string]$searchPattern = "2025-07-*")
+param([string]$month = "August", [string]$searchPattern = "2025-08-*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
