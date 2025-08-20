@@ -234,7 +234,7 @@ try {
 
 	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
-	Write-Host " succeeded (<Ctrl>+<click> to follow link)."
+	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
 	exit 0 # success
 } catch {
 	"⚠️ ERROR: $($Error[0]) in script line $($_.InvocationInfo.ScriptLineNumber)"
