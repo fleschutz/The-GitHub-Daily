@@ -1,15 +1,15 @@
 ﻿<#
 .SYNOPSIS
-        The bot writing 'The GitHub Daily'
+	The bot writing 'The GitHub Daily'
 .DESCRIPTION
-        This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
-	Required is PowerShell 5.1+, Git 2.30+ and GitHub CLI.
+	This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
+	Required is PowerShell 5.1+, Git 2.30+, and GitHub CLI.
 .EXAMPLE
-        PS> ./bot.ps1
+	PS> ./bot.ps1
 .LINK
-        https://github.com/fleschutz/the-github-daily
+	https://github.com/fleschutz/the-github-daily
 .NOTES
-        Author: Markus Fleschutz | License: CC0
+	Author: Markus Fleschutz | License: CC0
 #>
 
 #requires -version 5.1
@@ -234,9 +234,9 @@ try {
 
 	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
-	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
+	Write-Host " succeeded (<Ctrl> + <Click> to follow link)."
 	exit 0 # success
 } catch {
-	"⚠️ ERROR: $($Error[0]) in script line $($_.InvocationInfo.ScriptLineNumber)"
+	"⚠️ ERROR: $($Error[0]) (script line $($_.InvocationInfo.ScriptLineNumber))"
 	exit 1
 }
