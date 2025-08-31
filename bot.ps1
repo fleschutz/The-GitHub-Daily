@@ -7,7 +7,7 @@
 .EXAMPLE
 	PS> ./bot.ps1
 .LINK
-	https://github.com/fleschutz/the-github-daily
+	https://github.com/fleschutz/The-GitHub-Daily
 .NOTES
 	Author: Markus Fleschutz | License: CC0
 #>
@@ -92,7 +92,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "G'day, in $month the latest releases of **featured repositories** are: $ln`n"
+	WriteLine "Howdy, the latest $month releases of **featured** GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -233,7 +233,7 @@ try {
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
 	Write-Host "✅ Update of " -noNewline
-	Write-Host "https://github.com/fleschutz/the-github-daily" -foregroundColor blue -noNewline
+	Write-Host "https://github.com/fleschutz/The-GitHub-Daily" -foregroundColor blue -noNewline
 	Write-Host " succeeded (<Ctrl> + <Click> to follow link)."
 	exit 0 # success
 } catch {
