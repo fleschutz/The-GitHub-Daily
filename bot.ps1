@@ -56,11 +56,11 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/6) Checking Git...                        " -noNewline
+        Write-Host "⏳ (1/6) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
 
-        Write-Host "⏳ (2/6) Checking GitHub CLI...                 " -noNewline
+        Write-Host "⏳ (2/6) Searching for GitHub CLI executable... " -noNewline
         & gh --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
@@ -92,7 +92,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "Howdy, the latest $month releases of **featured** GitHub repositories are: $ln`n"
+	WriteLine "Howdy, in **$month** the latest releases of featured GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
