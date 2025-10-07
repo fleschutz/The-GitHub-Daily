@@ -217,9 +217,7 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteLine "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**NOTE:** 🆕 *= new project,* ☀️ *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90+ days*`n"
-
-	WriteLine "*Auto-generated from $($global:numRepos) repos on $today by our friendly 🤖bot (see [bot.ps1](bot.ps1))*.`n"
+	WriteLine "**NOTE:** 🆕 *= new project,* ☀️ *= new release in $month,* 🔖 *= new tag in $month*, 💤 *= no activity for 90+ days*, *auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1))*.`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
