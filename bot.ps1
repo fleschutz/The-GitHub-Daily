@@ -56,7 +56,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) Script parameters are:                 '$month' + '$searchPattern'"
+        Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$month' + '$searchPattern'"
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
