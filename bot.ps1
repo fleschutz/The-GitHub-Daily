@@ -16,7 +16,7 @@
 
 param([string]$month = "November", [string]$searchPattern = "2025-11-*")
 
-function WriteLine([string]$line) {
+function WriteREADME([string]$line) {
 	Write-Output $line >> README.md
 }
 
@@ -74,9 +74,9 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteLine "📰 The GitHub Daily"
-	WriteLine "==================="
-	WriteLine ""
+	WriteREADME "📰 The GitHub Daily"
+	WriteREADME "==================="
+	WriteREADME ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "curl"               "curl/curl"                   "curl-*"
@@ -93,7 +93,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "Howdy, in **$month** the latest releases of featured GitHub repositories are: $ln`n"
+	WriteREADME "Howdy, in **$month** the latest releases of featured GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -118,7 +118,7 @@ try {
 	$ln += Repo "VLC"                "videolan/vlc"                ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **General Apps** we have $ln`n"
+	WriteREADME "In **General Apps** we have $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -135,7 +135,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteLine "In **Text Editors** and **IDEs** there's $ln`n"
+	WriteREADME "In **Text Editors** and **IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "Bash"               "bminor/bash"                   "bash-*"
@@ -166,7 +166,7 @@ try {
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteLine "In **Programming Languages** it's $ln`n"
+	WriteREADME "In **Programming Languages** it's $ln`n"
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
@@ -186,7 +186,7 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
+	WriteREADME "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
@@ -199,7 +199,7 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteLine "Looking at **Compiler** and **Build Systems** there's $ln`n"
+	WriteREADME "Looking at **Compiler** and **Build Systems** there's $ln`n"
 
 	$ln = Repo "Ansible"             "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
@@ -215,10 +215,10 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteLine "And last but not least **DevOps** with $ln`n"
+	WriteREADME "And last but not least **DevOps** with $ln`n"
 
-	WriteLine "**Legend:** 🆕: *new project*, ☀️: *new release in $month*, 🔖: *new tag in $month*, 💤: *no activity for 90+ days*"
-	WriteLine "Auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1))."
+	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new release in $month*, 🔖: *new tag in $month*, 💤: *no activity for 90+ days*`n"
+	WriteREADME "Auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1))."
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
