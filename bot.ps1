@@ -215,9 +215,9 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteREADME "And last but not least **DevOps** with $ln everything auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1)).`n"
+	WriteREADME "And last but not least **DevOps** with $ln All data auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1)).`n"
 
-	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new release in $month*, 🔖: *new tag in $month*, 💤: *no activity for 90+ days*`n"
+	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
