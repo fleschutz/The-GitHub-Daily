@@ -69,7 +69,7 @@ try {
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "⏳ (5/7) Querying GitHub repos and writing README.md..." -noNewline
+	Write-Host "⏳ (5/7) Querying the GitHub repos and writing README.md..." -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
@@ -90,6 +90,7 @@ try {
 	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
 	$ln += Repo "Multipass"          "canonical/multipass"         "v*"
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
+	$ln += Repo "Pi-hole"            "pi-hole/pi-hole"             "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
