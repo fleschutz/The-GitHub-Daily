@@ -82,6 +82,7 @@ try {
 	$ln += Repo "curl"               "curl/curl"                   "curl-*"
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Git"                "git/git"                     "v*"
+	$ln += Repo "Home Assistant"     "home-assistant/core"         ""
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
 	$ln += Repo "Jellyfin"           "jellyfin/jellyfin"           "v*"
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
