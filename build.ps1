@@ -5,7 +5,7 @@
 	This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
 	Required is PowerShell 5.1+, Git 2.30+, and GitHub CLI.
 .EXAMPLE
-	PS> ./bot.ps1
+	PS> ./build.ps1
 .LINK
 	https://github.com/fleschutz/The-GitHub-Daily
 .NOTES
@@ -56,7 +56,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$month' + '$searchPattern'"
+        Write-Host "⏳ (1/7 build.ps1 started with parameters:      '$month' + '$searchPattern'"
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
