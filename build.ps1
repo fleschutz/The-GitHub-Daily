@@ -1,8 +1,8 @@
 ﻿<#
 .SYNOPSIS
-	The bot writing 'The GitHub Daily'
+	Update 'The GitHub Daily'
 .DESCRIPTION
-	This PowerShell script writes the text content for 'The GitHub Daily' into README.md.
+	This PowerShell script updates README.md in the Git repository 'The GitHub Daily' .
 	Required is PowerShell 5.1+, Git 2.30+, and GitHub CLI.
 .EXAMPLE
 	PS> ./build.ps1
@@ -56,7 +56,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7 build.ps1 started with parameters:      '$month' + '$searchPattern'"
+        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$month' + '$searchPattern'"
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
@@ -217,7 +217,7 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteREADME "And last but not least **DevOps** with $ln All data auto-generated from $($global:numRepos) repos on $today by our friendly bot 🤖 (see [bot.ps1](bot.ps1)).`n"
+	WriteREADME "And last but not least **DevOps** with $ln The data has been generated automatically from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
 	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
 
