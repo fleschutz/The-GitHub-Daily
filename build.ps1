@@ -79,9 +79,7 @@ try {
 	WriteREADME ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
-	$ln += Repo "curl"               "curl/curl"                   "curl-*"
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
-	$ln += Repo "Git"                "git/git"                     "v*"
 	$ln += Repo "Home Assistant"     "home-assistant/core"         ""
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
 	$ln += Repo "Jellyfin"           "jellyfin/jellyfin"           "v*"
@@ -203,7 +201,13 @@ try {
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
 	WriteREADME "Looking at **Compiler** and **Build Systems** there's $ln`n"
 
-	$ln = Repo "Ansible"             "ansible/ansible"       "v*"
+	 $ln = Repo "curl"               "curl/curl"             "curl-*"
+	$ln += Repo "Git"                "git/git"               "v*"
+	$ln += Repo "GNU Wget"           "mirror/wget"           ""
+	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
+	WriteREADME "For the **command-line (CLI)** it's $ln`n"
+
+	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
 	$ln += Repo "Chef"               "chef/chef"             "v*"
 	$ln += Repo "Grafana"            "grafana/grafana"       "v*"
