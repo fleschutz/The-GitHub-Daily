@@ -90,7 +90,6 @@ try {
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
 	$ln += Repo "Pi-hole"            "pi-hole/pi-hole"             "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
-	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	WriteREADME "Howdy, in **$month** the latest releases of featured GitHub repositories are: $ln`n"
@@ -201,12 +200,6 @@ try {
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
 	WriteREADME "Looking at **Compiler** and **Build Systems** there's $ln`n"
 
-	 $ln = Repo "curl"               "curl/curl"             "curl-*"
-	$ln += Repo "Git"                "git/git"               "v*"
-	$ln += Repo "GNU Wget"           "mirror/wget"           ""
-	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
-	WriteREADME "For the **command-line (CLI)** it's $ln`n"
-
 	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
 	$ln += Repo "Chef"               "chef/chef"             "v*"
@@ -221,7 +214,14 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteREADME "And last but not least **DevOps** with $ln Data generated automatically from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
+	WriteREADME "For **DevOps** it's $ln`n"
+
+	 $ln = Repo "curl"               "curl/curl"             "curl-*"
+	$ln += Repo "Git"                "git/git"               "v*"
+	$ln += Repo "GNU Wget"           "mirror/wget"           ""
+	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
+	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
+	WriteREADME "And last but not least **command-line (CLI)** with $ln Data generated automatically from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
 	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
 
