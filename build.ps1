@@ -154,7 +154,7 @@ try {
 	$ln += Repo "Nim"                "nim-lang/Nim"                  "v*"
 	$ln += Repo "Odin"               "odin-lang/Odin"                ""
 	$ln += Repo "Orca"               "hundredrabbits/Orca"           ""
-	$ln += Repo "PHP"                "php/php-src"                   "yaf-*"
+	$ln += Repo "PHP"                "php/php-src"                   "php-*"
 	$ln += Repo "PowerShell"         "PowerShell/PowerShell"         "v*"
 	$ln += Repo "Python"             "python/cpython"                "v*"
 	$ln += Repo "Roslyn"             "dotnet/roslyn"                 "v*"
@@ -221,7 +221,7 @@ try {
 	$ln += Repo "GNU Wget"           "mirror/wget"           ""
 	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
-	WriteREADME "And last but not least **command-line (CLI)** with $ln Data generated automatically from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
+	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
 	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
 
