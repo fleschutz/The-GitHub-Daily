@@ -79,6 +79,7 @@ try {
 	WriteREADME ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
+	$ln += Repo "copyparty"          "9001/copyparty"              "v*"
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Home Assistant"     "home-assistant/core"         ""
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
