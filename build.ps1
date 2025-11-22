@@ -32,7 +32,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
-			if ("$($release.published_at)" -like $searchPattern) { $version += "☀️" }
+			if ("$($release.published_at)" -like $searchPattern) { $version += "🎉" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -224,7 +224,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🆕: *new project*, ☀️: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
+	WriteREADME "**Legend:** 🆕: *new project*, 🎉: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
@@ -240,7 +240,7 @@ try {
 
 	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/The-GitHub-Daily" -foregroundColor blue -noNewline
-	Write-Host " succeeded (<Ctrl> + <Click> to follow link)."
+	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
 	exit 0 # success
 } catch {
 	"⚠️ ERROR: $($Error[0]) (script line $($_.InvocationInfo.ScriptLineNumber))"
