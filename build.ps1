@@ -93,7 +93,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "Today, the the latest releases of featured GitHub repositories are: $ln`n"
+	WriteREADME "Today, the very latest releases of featured GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
