@@ -93,7 +93,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "Howdy, in **$month** the latest releases of featured GitHub repositories are: $ln`n"
+	WriteREADME "Today, the the latest releases of featured GitHub repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -224,7 +224,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🆕: *new project*, 🎉: *new $month release*, 🔖: *new $month tag*, 💤: *no activity for 90+ days*`n"
+	WriteREADME "**Legend:** 🆕: *new project*, 🎉: *new release in $month*, 🔖: *new tag in $month*, 💤: *no activity for 90+ days*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
