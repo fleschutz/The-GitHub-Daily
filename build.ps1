@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$month = "December", [string]$searchPattern = "2025-12-*")
+param([string]$monthName = "December", [string]$monthPattern = "2025-12-*", [string]$newPattern = "2025-12-05*")
 
 function WriteREADME([string]$line) {
 	Write-Output $line >> README.md
@@ -32,7 +32,8 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			$version = $release.tag_name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
-			if ("$($release.published_at)" -like $searchPattern) { $version += "🎉" }
+			if ("$($release.published_at)" -like $newPattern) { $version += "🔥" }
+			elseif ("$($release.published_at)" -like $monthPattern) { $version += "🎉" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -48,7 +49,8 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			$version = $tag.name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
-			if ($commitDate -like $searchPattern) { $version += "🔖" }
+			if ($commitDate -like $newPattern) { $version += "🔥" }
+			else if ($commitDate -like $monthPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -56,7 +58,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$month' + '$searchPattern'"
+        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$monthName' + '$monthPattern'"
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
@@ -224,7 +226,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🆕: *new project*, 🎉: *new release in $month*, 🔖: *new tag in $month*, 💤: *no activity for 90+ days*`n"
+	WriteREADME "**Legend:** 🔥: *brand new release*, 🎉: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *no activity for 90+ days*, 🆕: *new project added* `n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
