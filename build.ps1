@@ -33,7 +33,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
 			if ("$($release.published_at)" -like $newPattern) { $version += "🔥" }
-			elseif ("$($release.published_at)" -like $monthPattern) { $version += "🎉" }
+			elseif ("$($release.published_at)" -like $monthPattern) { $version += "🆕" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -50,7 +50,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
 			if ($commitDate -like $newPattern) { $version += "🔥" }
-			else if ($commitDate -like $monthPattern) { $version += "🔖" }
+			elseif ($commitDate -like $monthPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -226,7 +226,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🔥: *brand new release*, 🎉: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *no activity for 90+ days*, 🆕: *new project added* `n"
+	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *no activity (90+ days)*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
