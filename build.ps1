@@ -49,8 +49,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 			$version = $tag.name
 			if ($version -like $versionPrefix) { $version = $version.Substring($versionPrefix.Length - 1) }
 			$version = $version -Replace "_","."
-			if ($commitDate -like $newPattern) { $version += "🔥" }
-			elseif ($commitDate -like $monthPattern) { $version += "🔖" }
+			if ($commitDate -like $monthPattern) { $version += "🔖" }
 			return "[$name](https://github.com/$URLpart) $version, "
 		}
 	}
@@ -226,7 +225,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *no activity (90+ days)*`n"
+	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle (90+ days)*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
