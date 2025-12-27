@@ -223,9 +223,9 @@ try {
 	$ln += Repo "GNU Wget"           "mirror/wget"           ""
 	$ln += Repo "PowerShell"         "PowerShell/PowerShell" "v*"
 	$ln += Repo "PowerShell scripts" "fleschutz/PowerShell"  "v*"
-	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
+	$ln += Repo "Rust coreutils"     "uutils/coreutils"      ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
-	$ln += Repo "zsh"                "zsh-users/zsh"         ""
+	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
 	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle (90+ days)*`n"
