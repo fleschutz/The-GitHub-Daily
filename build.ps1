@@ -139,7 +139,6 @@ try {
 	WriteREADME "In **Text Editors** and **IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
-	$ln += Repo "Bash"               "bminor/bash"                   "bash-*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
 	$ln += Repo "Clojure"            "clojure/clojure"               "clojure-*"
 	$ln += Repo "CoffeeScript"       "jashkenas/coffeescript"        ""
@@ -157,7 +156,6 @@ try {
 	$ln += Repo "Odin"               "odin-lang/Odin"                ""
 	$ln += Repo "Orca"               "hundredrabbits/Orca"           ""
 	$ln += Repo "PHP"                "php/php-src"                   "php-*"
-	$ln += Repo "PowerShell"         "PowerShell/PowerShell"         "v*"
 	$ln += Repo "Python"             "python/cpython"                "v*"
 	$ln += Repo "Roslyn"             "dotnet/roslyn"                 "v*"
 	$ln += Repo "Ruby"               "ruby/ruby"                     "v*"
@@ -218,11 +216,16 @@ try {
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
 	WriteREADME "For **DevOps** it's $ln`n"
 
-	 $ln = Repo "curl"               "curl/curl"             "curl-*"
+	 $ln = Repo "bash"               "bminor/bash"           "bash-*"
+	$ln += Repo "curl"               "curl/curl"             "curl-*"
+	$ln += Repo "fish"               "fish-shell/fish-shell" ""
 	$ln += Repo "Git"                "git/git"               "v*"
 	$ln += Repo "GNU Wget"           "mirror/wget"           ""
+	$ln += Repo "PowerShell"         "PowerShell/PowerShell" "v*"
+	$ln += Repo "PowerShell scripts" "fleschutz/PowerShell"  "v*"
 	$ln += Repo "Rust Coreutils"     "uutils/coreutils"      ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
+	$ln += Repo "zsh"                "zsh-users/zsh"         ""
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
 	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle (90+ days)*`n"
