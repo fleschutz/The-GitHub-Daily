@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$monthName = "December", [string]$monthPattern = "2026-01-*", [string]$newPattern = "2026-01-11*")
+param([string]$monthName = "January", [string]$monthPattern = "2026-01-*", [string]$newPattern = "2026-01-11*")
 
 function WriteREADME([string]$line) {
 	Write-Output $line >> README.md
@@ -230,7 +230,7 @@ try {
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln Data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
 
-	WriteREADME "**Legend:** 🔥: *brand new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle (90+ days)*`n"
+	WriteREADME "**Legend:** 🔥: *new release (24h)*, 🆕: *new release ($monthName)*, 🔖: *new tag ($monthName)*, 💤: *idle (90+ days)*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
