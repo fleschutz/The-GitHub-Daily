@@ -5,7 +5,7 @@
 	This PowerShell script updates README.md in the Git repository 'The GitHub Daily' .
 	Required is PowerShell 5.1+, Git 2.30+, and GitHub CLI.
 .EXAMPLE
-	PS> ./build.ps1
+	PS> ./bot.ps1
 .LINK
 	https://github.com/fleschutz/The-GitHub-Daily
 .NOTES
@@ -228,7 +228,7 @@ try {
 	$ln += Repo "Rust coreutils"     "uutils/coreutils"      ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteREADME "And last but not least **command-line (CLI)** with $ln All data queried from $($global:numRepos) repos on $today by our friendly 🤖 bot (see [build.ps1](build.ps1)).`n"
+	WriteREADME "And last but not least **command-line (CLI)** with $ln All data queried from $($global:numRepos) repos on $today by our friendly 🤖 [bot script](bot.ps1).`n"
 
 	WriteREADME "**Legend:** 🔥: *new release (24h)*, 🆕: *new release (in $monthName)*, 🔖: *new tag (in $monthName)*, 💤: *idle (90+ days)*`n"
 
