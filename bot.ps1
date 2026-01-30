@@ -227,6 +227,7 @@ try {
 	$ln += Repo "PowerShell scripts" "fleschutz/PowerShell"  "v*"
 	$ln += Repo "Rust coreutils"     "uutils/coreutils"      ""
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
+	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteREADME "And last but not least **command-line (CLI)** with $ln All data queried from $($global:numRepos) repos on $today by our friendly 🤖 [bot script](bot.ps1).`n"
 
