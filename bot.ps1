@@ -2,8 +2,8 @@
 .SYNOPSIS
 	Update 'The GitHub Daily'
 .DESCRIPTION
-	This PowerShell script updates README.md in the Git repository 'The GitHub Daily' .
-	Required is PowerShell 5.1+, Git 2.30+, and GitHub CLI.
+	This PowerShell script updates the README.md in Git repository 'The GitHub Daily'.
+	Requires PowerShell 5.1+, Git 2.30+, and GitHub CLI.
 .EXAMPLE
 	PS> ./bot.ps1
 .LINK
@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$monthName = "January", [string]$monthPattern = "2026-01-*", [string]$newPattern = "2026-01-30*")
+param([string]$monthName = "February", [string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-01*")
 
 function WriteREADME([string]$line) {
 	Write-Output $line >> README.md
@@ -94,7 +94,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "Today, the very latest releases of featured GitHub repositories are: $ln`n"
+	WriteREADME "Today, the latest releases of **featured** repositories are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -118,6 +118,7 @@ try {
 	$ln += Repo "Serenade"           "serenadeai/serenade"         ""
 	$ln += Repo "VLC"                "videolan/vlc"                ""
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
+	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
 	WriteREADME "In **General Apps** we have $ln`n"
 
