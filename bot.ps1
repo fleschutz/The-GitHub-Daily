@@ -230,7 +230,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteREADME "And last but not least **command-line (CLI)** with $ln All data queried from $($global:numRepos) repos on $today by our friendly 🤖 [bot script](bot.ps1), updated daily.`n"
+	WriteREADME "And last but not least **command-line (CLI)** with $ln All data queried on $today from $($global:numRepos) GitHub repos and updated daily by our friendly 🤖 [bot script](bot.ps1).`n"
 
 	WriteREADME "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for 90+ days*`n"
 
