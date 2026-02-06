@@ -94,7 +94,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "Today (Friday), the latest releases of **featured** GitHub repos are: $ln`n"
+	WriteREADME "**Today** (Friday), the latest releases of **featured** GitHub repos are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -230,7 +230,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteREADME "And last but not least **command-line (CLI)** with $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1).`n"
+	WriteREADME "And last but not least **command-lines** like $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1).`n"
 
 	WriteREADME "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for 90+ days*`n"
 
