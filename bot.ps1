@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$monthName = "February", [string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-05*")
+param([string]$monthName = "February", [string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-07*")
 
 function WriteREADME([string]$line) {
 	Write-Output $line >> README.md
@@ -94,7 +94,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "**Today** (Friday), the latest releases of **featured** GitHub repos are: $ln`n"
+	WriteREADME "**Today** (Sunday), the latest releases of **featured** GitHub repos are: $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
