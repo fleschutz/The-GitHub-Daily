@@ -16,7 +16,7 @@
 
 param([string]$monthName = "February", [string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-11*")
 
-function WriteREADME([string]$line) {
+function WriteLine([string]$line) {
 	Write-Output $line >> README.md
 }
 
@@ -75,9 +75,9 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteREADME "📰 The GitHub Daily"
-	WriteREADME "==================="
-	WriteREADME ""
+	WriteLine "📰 The GitHub Daily"
+	WriteLine "==================="
+	WriteLine ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "copyparty"          "9001/copyparty"              "v*"
@@ -94,7 +94,8 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteREADME "**Today** (Thursday), the latest releases of **featured** GitHub repos are: $ln`n"
+	WriteLine "**Today** (Thursday), the latest releases of **featured** GitHub repos are: $ln"
+	WriteLine ""
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -120,7 +121,8 @@ try {
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteREADME "In **General Apps** we have $ln`n"
+	WriteLine "In **General Apps** we have $ln"
+	WriteLine ""
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -137,7 +139,8 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteREADME "In **Text Editors** and **IDEs** there's $ln`n"
+	WriteLine "In **Text Editors** and **IDEs** there's $ln"
+	WriteLine ""
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
@@ -166,7 +169,8 @@ try {
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteREADME "In **Programming Languages** it's $ln`n"
+	WriteLine "In **Programming Languages** it's $ln"
+	WriteLine ""
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
@@ -188,7 +192,8 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteREADME "In **Software Libs/SDKs/AI** the latest and greatest are $ln`n"
+	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln"
+	WriteLine ""
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
@@ -201,7 +206,8 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteREADME "Looking at **Compiler** and **Build Systems** there's $ln`n"
+	WriteLine "Looking at **Compiler** and **Build Systems** there's $ln"
+	WriteLine ""
 
 	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
@@ -217,7 +223,8 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteREADME "For **DevOps** it's $ln`n"
+	WriteLine "For **DevOps** it's $ln"
+	WriteLine ""
 
 	 $ln = Repo "bash"               "bminor/bash"           "bash-*"
 	$ln += Repo "curl"               "curl/curl"             "curl-*"
@@ -230,9 +237,11 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteREADME "And last but not least **CLI** programs like $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1).`n"
+	WriteLine "And last but not least **CLI** programs like $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1)."
+	WriteLine ""
 
-	WriteREADME "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for 90+ days*`n"
+	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for 90+ days*"
+	WriteLine ""
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
