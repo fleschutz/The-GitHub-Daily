@@ -58,6 +58,9 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 
 try {
         Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$monthName' + '$monthPattern'"
+	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
+	$weekday = Get-Date -UFormat "%A"
+	
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
         if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
@@ -94,7 +97,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**Today** (Tuesday), the latest releases of **featured** GitHub repos are: $ln"
+	WriteLine "**Today** ($weekday), the latest releases of **featured** GitHub repos are: $ln"
 	WriteLine ""
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
