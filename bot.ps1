@@ -237,7 +237,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **CLI** programs like $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1)."
+	WriteLine "And last but not least **CLI** tools like $ln **NOTE:** Data queried from $($global:numRepos) GitHub repos on $today and updated daily by our friendly 🤖 [bot script](bot.ps1)."
 	WriteLine ""
 
 	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for 90+ days*"
