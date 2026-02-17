@@ -57,7 +57,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) bot.ps1 started with parameters:     '$monthPattern' + '$newPattern'"
+        Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$monthPattern' + '$newPattern'"
 	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
 	$weekday = Get-Date -UFormat "%A"
 	$monthName = (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
@@ -230,8 +230,7 @@ try {
 	WriteLine "For **DevOps** it's $ln"
 	WriteLine ""
 
-	 $ln = Repo "bash"               "bminor/bash"           "bash-*"
-	$ln += Repo "curl"               "curl/curl"             "curl-*"
+	 $ln = Repo "curl"               "curl/curl"             "curl-*"
 	$ln += Repo "fish"               "fish-shell/fish-shell" ""
 	$ln += Repo "Git"                "git/git"               "v*"
 	$ln += Repo "GNU Wget"           "mirror/wget"           ""
