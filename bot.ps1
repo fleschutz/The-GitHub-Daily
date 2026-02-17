@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$monthName = "February", [string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-16*")
+param([string]$monthPattern = "2026-02-*", [string]$newPattern = "2026-02-16*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
@@ -57,9 +57,10 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$monthName' + '$monthPattern'"
+        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$monthPattern'"
 	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
 	$weekday = Get-Date -UFormat "%A"
+	$monthName = (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
 	
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
