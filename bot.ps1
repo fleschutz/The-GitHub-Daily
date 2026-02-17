@@ -21,7 +21,7 @@ function WriteLine([string]$line) {
 }
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
-	Write-Host "." -noNewline
+	Write-Host "$name..." -noNewline
 	$global:numRepos++
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	if ($releases.Count -ge 1) {
@@ -57,7 +57,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) build.ps1 started with parameters:     '$monthPattern'"
+        Write-Host "⏳ (1/7) bot.ps1 started with parameters:     '$monthPattern' + '$newPattern'"
 	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
 	$weekday = Get-Date -UFormat "%A"
 	$monthName = (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
