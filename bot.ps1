@@ -98,7 +98,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
-	WriteLine "**Today** ($weekday), the latest releases of **featured** GitHub repos are: $ln"
+	WriteLine "**Today** ($weekday), the very latest releases of **featured** GitHub repos are: $ln"
 	WriteLine ""
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
