@@ -21,7 +21,7 @@ function WriteLine([string]$line) {
 }
 
 function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
-	Write-Host "$name..." -noNewline
+	Write-Host "$name, " -noNewline
 	$global:numRepos++
 	$releases = (gh api /repos/$URLpart/releases?per_page=1 --method GET) | ConvertFrom-Json
 	if ($releases.Count -ge 1) {
@@ -74,7 +74,7 @@ try {
         & git pull
         if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
-	Write-Host "⏳ (5/7) Querying the GitHub repos and writing README.md..." -noNewline
+	Write-Host "⏳ (5/7) Querying the GitHub repos and writing README.md... " -noNewline
         [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
@@ -258,9 +258,9 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ Update of " -noNewline
+	Write-Host "✅ " -noNewline
 	Write-Host "https://github.com/fleschutz/The-GitHub-Daily" -foregroundColor blue -noNewline
-	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
+	Write-Host " updated (use <Ctrl> <Click> to follow link)."
 	exit 0 # success
 } catch {
 	"⚠️ ERROR: $($Error[0]) (script line $($_.InvocationInfo.ScriptLineNumber))"
