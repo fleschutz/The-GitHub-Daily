@@ -187,6 +187,7 @@ try {
 	$ln += Repo "librealsense"       "realsenseai/librealsense" "v*"
 	$ln += Repo "libSI"              "fleschutz/libSI"         ""
 	$ln += Repo "libyuv"             "lemenkov/libyuv"         ""
+	$ln += Repo "OpenClaw"           "openclaw/openclaw"       "v*"
 	$ln += Repo "OpenCV"             "opencv/opencv"           ""
 	$ln += Repo "OpenEXR"            "AcademySoftwareFoundation/openexr" "v*"
 	$ln += Repo "OpenVDB"            "AcademySoftwareFoundation/openvdb" "v*"
