@@ -93,6 +93,7 @@ try {
 	$ln += Repo "Linux"              "torvalds/linux"              "v*"
 	$ln += Repo "Mastodon"           "mastodon/mastodon"           "v*"
 	$ln += Repo "Multipass"          "canonical/multipass"         "v*"
+	$ln += Repo "Nginx"              "nginx/nginx"                 "release-*"
 	$ln += Repo "OpenMCT"            "nasa/openmct"                "v*"
 	$ln += Repo "Pi-hole"            "pi-hole/pi-hole"             "v*"
 	$ln += Repo "Redis"              "redis/redis"                 ""
