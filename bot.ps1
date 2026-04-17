@@ -142,7 +142,7 @@ try {
 	$ln += Repo "TextMate"           "textmate/textmate"           "v*"
 	$ln += Repo "Typedown"           "byxiaozhi/Typedown"          ""
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
-	$ln += Repo "Visual Studio Code" "microsoft/vscode"            ""
+	$ln += Repo "Visual Studio Code" "microsoft/vscode"            "v*"
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
 	WriteLine "In **Text Editors** and **IDEs** there's $ln"
 	WriteLine ""
