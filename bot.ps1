@@ -119,6 +119,7 @@ try {
 	$ln += Repo "Nextcloud Desktop"  "nextcloud/desktop"           "v*"
 	$ln += Repo "OBS Studio"         "obsproject/obs-studio"       ""
 	$ln += Repo "OctoPrint"          "OctoPrint/OctoPrint"         ""
+	$ln += Repo "OrcaSlicer"         "OrcaSlicer/OrcaSlicer"       "v*"
 	$ln += Repo "PowerToys"          "microsoft/PowerToys"         "v*"
 	$ln += Repo "PrusaSlicer"        "prusa3d/PrusaSlicer"         "version_*"
 	$ln += Repo "Serenade"           "serenadeai/serenade"         ""
