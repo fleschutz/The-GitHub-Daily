@@ -222,7 +222,7 @@ try {
 	$ln += Repo "Grafana"            "grafana/grafana"       "v*"
 	$ln += Repo "Jenkins"            "jenkinsci/jenkins"     "jenkins-*"
 	$ln += Repo "Kubernetes"         "kubernetes/kubernetes" "v*"
-	$ln += Repo "Moby"               "moby/moby"             "v*"
+	$ln += Repo "Moby"               "moby/moby"             "docker-v*"
 	$ln += Repo "OpenStack"          "openstack/openstack"   ""
 	$ln += Repo "Prometheus"         "prometheus/prometheus" "v*"
 	$ln += Repo "Puppet"             "puppetlabs/puppet"     ""
