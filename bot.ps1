@@ -186,6 +186,7 @@ try {
 	$ln += Repo "libarchive"         "libarchive/libarchive"   "v*"
 	$ln += Repo "libexpat"           "libexpat/libexpat"       "R_*"
 	$ln += Repo "libgit2"            "libgit2/libgit2"         "v*"
+	$ln += Repo "libmodbus"          "stephane/libmodbus"      "v*"
 	$ln += Repo "librealsense"       "realsenseai/librealsense" "v*"
 	$ln += Repo "libSI"              "fleschutz/libSI"         ""
 	$ln += Repo "libyuv"             "lemenkov/libyuv"         ""
