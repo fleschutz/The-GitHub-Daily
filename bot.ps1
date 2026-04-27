@@ -210,6 +210,7 @@ try {
 	$ln += Repo "LLVM"               "llvm/llvm-project"   "llvmorg-*"
 	$ln += Repo "Maven"              "apache/maven"        "maven-*"
 	$ln += Repo "Meson"              "mesonbuild/meson"    ""
+	$ln += Repo "MSBuild"            "dotnet/msbuild"      "v*"
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
