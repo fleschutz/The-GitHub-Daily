@@ -245,7 +245,7 @@ try {
 	$ln += Repo "Smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **CLI** tools like $ln - Page updated as of $today from $($global:numRepos) popular GitHub repos by our friendly 🤖 [bot script](bot.ps1)."
+	WriteLine "And last but not least **CLI** tools like $ln - *Page updated as of $today from $($global:numRepos) popular GitHub repos by our friendly 🤖 [bot script](bot.ps1).*"
 	WriteLine ""
 
 	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*"
@@ -263,9 +263,9 @@ try {
 	& git push
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
-	Write-Host "✅ " -noNewline
+	Write-Host "✅ Update of " -noNewline
 	Write-Host "https://github.com/fleschutz/The-GitHub-Daily" -foregroundColor blue -noNewline
-	Write-Host " updated (use <Ctrl> <Click> to follow link)."
+	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
 	exit 0 # success
 } catch {
 	"⚠️ ERROR: $($Error[0]) (script line $($_.InvocationInfo.ScriptLineNumber))"
