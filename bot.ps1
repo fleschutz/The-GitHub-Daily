@@ -84,6 +84,7 @@ try {
 	WriteLine ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
+	$ln += Repo "Bitcoin Core"       "bitcoin/bitcoin"             "v*"
 	$ln += Repo "copyparty"          "9001/copyparty"              "v*"
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Home Assistant"     "home-assistant/core"         ""
