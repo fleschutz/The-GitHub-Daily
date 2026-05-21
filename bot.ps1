@@ -251,9 +251,10 @@ try {
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "winget"             "microsoft/winget-cli"  "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **CLI** tools like $ln - *Page updated as of $today from $($global:numRepos) popular GitHub repos by our friendly 🤖 [bot script](bot.ps1).*"
+	WriteLine "And last but not least **command-line:** $ln"
 	WriteLine ""
-
+	WriteLine "*Update as of $today from $($global:numRepos) popular GitHub repos by our friendly 🤖 [bot script](bot.ps1).*"
+	WriteLine ""
 	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*"
 	WriteLine ""
 
