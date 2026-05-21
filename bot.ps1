@@ -240,6 +240,7 @@ try {
 	$ln += Repo "curl"               "curl/curl"             "curl-*"
 	$ln += Repo "fish"               "fish-shell/fish-shell" ""
 	$ln += Repo "git"                "git/git"               "v*"
+	$ln += Repo "gh"                 "cli/cli"               "v*"
 	$ln += Repo "wget"               "mirror/wget"           ""
 	$ln += Repo "openssh"            "openssh/openssh-portable" ""
 	$ln += Repo "onefetch"           "o2sh/onefetch"         ""
