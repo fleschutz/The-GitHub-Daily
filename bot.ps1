@@ -58,7 +58,7 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 
 try {
         Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$monthPattern' + '$newPattern'"
-	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
+	Set-Culture -CultureInfo en-US
 	$weekday = Get-Date -UFormat "%A"
 	$monthName = (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
 	
