@@ -61,7 +61,7 @@ try {
 	[system.threading.thread]::currentThread.currentCulture = [system.globalization.cultureInfo]"en-US"
 	Set-Culture -CultureInfo en-US
 	$weekday = Get-Date -UFormat "%A"
-	$monthName = (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
+	$monthName = Get-Date -UFormat "%B" # (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
 	
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
