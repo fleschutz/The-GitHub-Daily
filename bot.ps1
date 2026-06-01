@@ -61,7 +61,7 @@ try {
 	[system.threading.thread]::currentThread.currentCulture = [system.globalization.cultureInfo]"en-US"
 	Set-Culture -CultureInfo en-US
 	$weekday = Get-Date -UFormat "%A"
-	$monthName = Get-Date -UFormat "%B" # (Get-Culture).DateTimeFormat.GetMonthName((Get-Date).Month)
+	$monthName = Get-Date -UFormat "%B"
 	
         Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
@@ -243,7 +243,7 @@ try {
 	$ln += Repo "git"                "git/git"               "v*"
 	$ln += Repo "gh"                 "cli/cli"               "v*"
 	$ln += Repo "wget"               "mirror/wget"           ""
-	$ln += Repo "openssh"            "openssh/openssh-portable" ""
+	$ln += Repo "openssh"            "openssh/openssh-portable" "V_*"
 	$ln += Repo "onefetch"           "o2sh/onefetch"         ""
 	$ln += Repo "ImageMagick"        "ImageMagick/ImageMagick" ""
 	$ln += Repo "PowerShell"         "PowerShell/PowerShell" "v*"
