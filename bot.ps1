@@ -102,7 +102,7 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "**Today** ($weekday), the very latest releases of **featured** GitHub repos are: $ln"
+	WriteLine "**Today** ($weekday), the latest and greatest releases of **featured** repositories are: $ln"
 	WriteLine ""
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
@@ -130,7 +130,7 @@ try {
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **General Apps** we have $ln"
+	WriteLine "In **General Apps** it's $ln"
 	WriteLine ""
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
@@ -178,7 +178,7 @@ try {
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteLine "In **Programming Languages** it's $ln"
+	WriteLine "In **Programming Languages** we have $ln"
 	WriteLine ""
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
@@ -203,7 +203,7 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteLine "In **Software Libs/SDKs/AI** the latest and greatest are $ln"
+	WriteLine "In **Software Libs/SDKs/AI** the latest are $ln"
 	WriteLine ""
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
@@ -253,7 +253,7 @@ try {
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "winget"             "microsoft/winget-cli"  "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **command-line:** $ln"
+	WriteLine "And last but not least **command-line** with $ln"
 	WriteLine ""
 	WriteLine "*Updated $today from $($global:numRepos) popular GitHub repos by our friendly 🤖 [bot script](bot.ps1).*"
 	WriteLine ""
