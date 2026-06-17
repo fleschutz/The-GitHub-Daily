@@ -90,6 +90,7 @@ try {
 	$ln += Repo "Flyby11"            "builtbybel/Flyby11"          ""
 	$ln += Repo "Home Assistant"     "home-assistant/core"         ""
 	$ln += Repo "Hugo"               "gohugoio/hugo"               "v*"
+	$ln += Repo "Immich"             "immich-app/immich"           "v*"
 	$ln += Repo "Jellyfin"           "jellyfin/jellyfin"           "v*"
 	$ln += Repo "Kodi"               "xbmc/xbmc"		       "v*"
 	$ln += Repo "Linux"              "torvalds/linux"              "v*"
