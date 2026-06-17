@@ -102,7 +102,7 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "**Today** ($weekday), the latest and greatest releases of **featured repositories** are: $ln"
+	WriteLine "Today (**$weekday**), the latest and greatest releases of **featured repositories** are $ln"
 	WriteLine ""
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
@@ -203,7 +203,7 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteLine "In **software libs/SDKs/AI** the latest are $ln"
+	WriteLine "In **software libs/SDKs/AI** the very latest are $ln"
 	WriteLine ""
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
