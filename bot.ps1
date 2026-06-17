@@ -101,6 +101,7 @@ try {
 	$ln += Repo "Redis"              "redis/redis"                 ""
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
+	$ln += Repo "Zulip"              "zulip/zulip"                 ""
 	WriteLine "**Today** ($weekday), the very latest releases of **featured** GitHub repos are: $ln"
 	WriteLine ""
 
