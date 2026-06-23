@@ -210,6 +210,7 @@ try {
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
 	$ln += Repo "CMake"              "Kitware/CMake"       "v*"
+	$ln += Repo "FASTBuild"          "fastbuild/fastbuild" "v*"
 	$ln += Repo "Gradle"             "gradle/gradle"       "v*"
 	$ln += Repo "LLVM"               "llvm/llvm-project"   "llvmorg-*"
 	$ln += Repo "Maven"              "apache/maven"        "maven-*"
