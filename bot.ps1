@@ -81,8 +81,7 @@ try {
 	$global:numRepos = 0
 	Write-Output "" > README.md
 	WriteLine "📰 The GitHub Daily"
-	WriteLine "==================="
-	WriteLine ""
+	WriteLine "===================`n"
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "Bitcoin Core"       "bitcoin/bitcoin"             "v*"
@@ -103,8 +102,7 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "Today (**$weekday**), the latest and greatest releases of **featured repositories** are $ln"
-	WriteLine ""
+	WriteLine "Today (**$weekday**), the latest and greatest releases of **featured repositories** are $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -131,8 +129,7 @@ try {
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **general apps** it's $ln"
-	WriteLine ""
+	WriteLine "In **general apps** it's $ln`n"
 
 	$ln = Repo "Atom"                "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -149,8 +146,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            "v*"
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteLine "In **text editors** and **IDEs** there's $ln"
-	WriteLine ""
+	WriteLine "In **text editors** and **IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
@@ -179,8 +175,7 @@ try {
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteLine "In **programming languages** we have $ln"
-	WriteLine ""
+	WriteLine "In **programming languages** we have $ln`n"
 
 	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
@@ -204,8 +199,7 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteLine "In **software libs/SDKs/AI** the very latest are $ln"
-	WriteLine ""
+	WriteLine "In **APIs/SDKs/AI** the very latest are $ln`n"
 
 	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
@@ -219,8 +213,7 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteLine "Looking at **compiler** and **build systems** there's $ln"
-	WriteLine ""
+	WriteLine "Looking at **compiler** and **build systems** there's $ln`n"
 
 	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
@@ -236,8 +229,7 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteLine "For **DevOps** it's $ln"
-	WriteLine ""
+	WriteLine "For **DevOps** it's $ln`n"
 
 	 $ln = Repo "coreutils"          "coreutils/coreutils"   "v*"
 	$ln += Repo "curl"               "curl/curl"             "curl-*"
@@ -255,13 +247,11 @@ try {
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "winget"             "microsoft/winget-cli"  "v*"
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **command-line** with $ln"
-	WriteLine ""
-	WriteLine "*Updated $today by our friendly 🤖 [bot script](bot.ps1) scanning $($global:numRepos) popular GitHub repositories.*"
-	WriteLine ""
-	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*"
-	WriteLine ""
+	WriteLine "And last but not least **command-line** with $ln`n"
 
+	WriteLine "*Updated $today by our friendly 🤖 [bot script](bot.ps1) scanning $($global:numRepos) popular GitHub repositories.*`n"
+
+	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
