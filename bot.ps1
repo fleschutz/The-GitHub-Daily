@@ -146,7 +146,7 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            "v*"
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteLine "In **text editors** and **IDEs** there's $ln`n"
+	WriteLine "In **text editors & IDEs** there's $ln`n"
 
 	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
@@ -213,7 +213,7 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteLine "Looking at **compiler** and **build systems** there's $ln`n"
+	WriteLine "Looking at **compiler & build systems** there's $ln`n"
 
 	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
