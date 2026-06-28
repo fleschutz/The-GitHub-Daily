@@ -80,8 +80,8 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteLine "📰 The GitHub Daily"
-	WriteLine "===================`n"
+	WriteLine "📰 The GitHub Daily on $weekday"
+	WriteLine "===============================`n"
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "Bitcoin Core"       "bitcoin/bitcoin"             "v*"
@@ -102,7 +102,7 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "Today (**$weekday**), the latest and greatest releases of **featured repositories** are $ln`n"
+	WriteLine "Today, the latest and greatest releases of **featured repositories** are $ln`n"
 
 	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
