@@ -237,7 +237,7 @@ try {
 	$ln += Repo "git"                "git/git"               "v*"
 	$ln += Repo "gh"                 "cli/cli"               "v*"
 	$ln += Repo "Homebrew"           "Homebrew/brew"         ""
-	$ln += Repo "wget"               "mirror/wget"           ""
+	$ln += Repo "kubo"               "ipfs/kubo"             "v*"
 	$ln += Repo "openssh"            "openssh/openssh-portable" "V_*"
 	$ln += Repo "onefetch"           "o2sh/onefetch"         ""
 	$ln += Repo "ImageMagick"        "ImageMagick/ImageMagick" ""
@@ -246,6 +246,7 @@ try {
 	$ln += Repo "smartmontools"      "smartmontools/smartmontools" "RELEASE_*"
 	$ln += Repo "winapp"             "microsoft/winappCLI"   "v*"
 	$ln += Repo "winget"             "microsoft/winget-cli"  "v*"
+	$ln += Repo "wget"               "mirror/wget"           ""
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteLine "And last but not least **command-line** with $ln`n"
 
