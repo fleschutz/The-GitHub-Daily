@@ -167,6 +167,7 @@ try {
 	$ln += Repo "Orca"               "hundredrabbits/Orca"           ""
 	$ln += Repo "PHP"                "php/php-src"                   "php-*"
 	$ln += Repo "Python"             "python/cpython"                "v*"
+	$ln += Repo "Red"                "red/red"                       "v*"
 	$ln += Repo "Roslyn"             "dotnet/roslyn"                 "v*"
 	$ln += Repo "Ruby"               "ruby/ruby"                     "v*"
 	$ln += Repo "Ruby on Rails"      "rails/rails"                   "v*"
@@ -174,6 +175,7 @@ try {
 	$ln += Repo "Scala"              "scala/scala"                   "v*"
 	$ln += Repo "Swift"              "swiftlang/swift"               "swift-*"
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
+	$ln += Repo "V"                  "vlang/v"                       "*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
 	WriteLine "In **programming languages** we have $ln`n"
 
