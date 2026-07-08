@@ -57,27 +57,27 @@ function Repo([string]$name, [string]$URLpart, [string]$versionPrefix) {
 }
 
 try {
-        Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$monthPattern' + '$newPattern'"
+	Write-Host "⏳ (1/7) bot.ps1 started with parameters:       '$monthPattern' + '$newPattern'"
 	[system.threading.thread]::currentThread.currentCulture = [system.globalization.cultureInfo]"en-US"
 	Set-Culture -CultureInfo en-US
 	$weekday = Get-Date -UFormat "%A"
 	$monthName = Get-Date -UFormat "%B"
 	
-        Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
+	Write-Host "⏳ (2/7) Searching for Git executable...        " -noNewline
 	& git --version
-        if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
+	if ($lastExitCode -ne 0) { throw "Can't execute 'git' - make sure Git is installed and available" }
 
-        Write-Host "⏳ (3/7) Searching for GitHub CLI executable... " -noNewline
-        & gh --version
-        if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
+	Write-Host "⏳ (3/7) Searching for GitHub CLI executable... " -noNewline
+	& gh --version
+	if ($lastExitCode -ne 0) { throw "Can't execute 'gh --version' - make sure GitHub CLI is installed and available" }
 
 	Write-Host "⏳ (4/7) Pulling latest repo updates...         " -noNewline
-        & git pull
-        if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
+	& git pull
+	if ($lastExitCode -ne 0) { throw "Can't execute 'git pull' - make sure Git is installed and available" }
 
 	Write-Host "⏳ (5/7) Writing README.md by querying the GitHub repos: " -noNewline
-        [system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
-        $today = (Get-Date).ToShortDateString()
+	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
+	$today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
 	WriteLine "📰 GitHub News on $weekday"
@@ -104,7 +104,7 @@ try {
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
 	WriteLine "Today, the latest and greatest releases of **featured repositories** are $ln`n"
 
-	$ln = Repo "Audacity"            "audacity/audacity"           "Audacity-*"
+	 $ln = Repo "Audacity"           "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
 	$ln += Repo "Brave"              "brave/brave-browser"         "v*"
 	$ln += Repo "Calibre"            "kovidgoyal/calibre"          "v*"
@@ -131,7 +131,7 @@ try {
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
 	WriteLine "In **general apps** it's $ln`n"
 
-	$ln = Repo "Atom"                "atom/atom"                   "v*"
+	 $ln = Repo "Atom"               "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
 	$ln += Repo "Edit"               "microsoft/edit"              "v*"
 	$ln += Repo "ghostwriter"        "KDE/ghostwriter"             ""
@@ -148,7 +148,7 @@ try {
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
 	WriteLine "In **text editors & IDEs** there's $ln`n"
 
-	$ln = Repo "AssemblyScript"      "AssemblyScript/assemblyscript" "v*"
+	 $ln = Repo "AssemblyScript"     "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
 	$ln += Repo "Clojure"            "clojure/clojure"               "clojure-*"
 	$ln += Repo "CoffeeScript"       "jashkenas/coffeescript"        ""
@@ -179,7 +179,7 @@ try {
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
 	WriteLine "In **programming languages** we have $ln`n"
 
-	$ln = Repo "alsa-lib"            "alsa-project/alsa-lib"   "v*"
+	 $ln = Repo "alsa-lib"           "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
 	$ln += Repo "Boost"              "boostorg/boost"          "boost-*"
 	$ln += Repo "DeepSeek-R1"        "deepseek-ai/DeepSeek-R1" "v*"
@@ -203,7 +203,7 @@ try {
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
 	WriteLine "In **APIs/SDKs/AI** the very latest are $ln`n"
 
-	$ln = Repo "Ant"                 "apache/ant"          "rel/*"
+	 $ln = Repo "Ant"                "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
 	$ln += Repo "CMake"              "Kitware/CMake"       "v*"
 	$ln += Repo "FASTBuild"          "fastbuild/fastbuild" "v*"
