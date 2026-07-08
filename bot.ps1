@@ -1,13 +1,13 @@
 ﻿<#
 .SYNOPSIS
-	Update 'The GitHub Daily'
+	Update the 'GitHub News'
 .DESCRIPTION
-	This PowerShell script updates the README.md in Git repository 'The GitHub Daily'.
-	Requires PowerShell 5.1+, Git 2.30+, and GitHub CLI.
+	This PowerShell script updates the README.md in the Git repository 'GitHub-News'.
+	Requires PowerShell 5.1+, Git 2.30+, and GitHub CLI 2.96+.
 .EXAMPLE
 	PS> ./bot.ps1
 .LINK
-	https://github.com/fleschutz/The-GitHub-Daily
+	https://github.com/fleschutz/GitHub-News
 .NOTES
 	Author: Markus Fleschutz | License: CC0
 #>
@@ -80,8 +80,8 @@ try {
         $today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
 	Write-Output "" > README.md
-	WriteLine "📰 The GitHub Daily on $weekday"
-	WriteLine "===============================`n"
+	WriteLine "📰 GitHub News on $weekday"
+	WriteLine "========================`n"
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "Bitcoin Core"       "bitcoin/bitcoin"             "v*"
@@ -268,7 +268,7 @@ try {
 	if ($lastExitCode -ne 0) { throw "Executing 'git push' failed with exit code $lastExitCode" }
 
 	Write-Host "✅ Update of " -noNewline
-	Write-Host "https://github.com/fleschutz/The-GitHub-Daily" -foregroundColor blue -noNewline
+	Write-Host "https://github.com/fleschutz/GitHub-News" -foregroundColor blue -noNewline
 	Write-Host " succeeded (<Ctrl> <Click> to follow link)."
 	exit 0 # success
 } catch {
