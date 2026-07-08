@@ -252,7 +252,7 @@ try {
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteLine "And last but not least **command-line** with $ln`n"
 
-	WriteLine "*Updated $today by our friendly 🤖 [bot script](bot.ps1) scanning $($global:numRepos) popular GitHub repositories.*`n"
+	WriteLine "*Updated $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
 
 	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*`n"
 
