@@ -14,7 +14,7 @@
 
 #requires -version 5.1
 
-param([string]$monthPattern = "2026-07-*", [string]$newPattern = "2026-07-08*")
+param([string]$monthPattern = "2026-07-*", [string]$newPattern = "2026-07-11*")
 
 function WriteLine([string]$line) {
 	Write-Output $line >> README.md
