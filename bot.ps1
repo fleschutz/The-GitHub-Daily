@@ -254,7 +254,7 @@ try {
 
 	WriteLine "*Updated $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
 
-	WriteLine "**Legend:** 🔥: *new release (24h)*, 🆕: *new release in $monthName*, 🔖: *new tag in $monthName*, 💤: *idle for >90 days*`n"
+	WriteLine "**Legend:** 🔥: *new release* (<24h), 🆕: *new release* (in $monthName), 🔖: *new tag* (in $monthName), 💤: *idle* (>90 days)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
