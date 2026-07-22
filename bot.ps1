@@ -129,7 +129,7 @@ try {
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **general apps** it's $ln`n"
+	WriteLine "In **general apps** we have $ln`n"
 
 	 $ln = Repo "Atom"               "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -177,7 +177,7 @@ try {
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "V"                  "vlang/v"                       "*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteLine "In **programming languages** we have $ln`n"
+	WriteLine "In **programming languages** it's $ln`n"
 
 	 $ln = Repo "alsa-lib"           "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
@@ -254,7 +254,7 @@ try {
 
 	WriteLine "*Updated $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
 
-	WriteLine "**Legend:** 🔥: *new release* (<24h), 🆕: *new release* (in $monthName), 🔖: *new tag* (in $monthName), 💤: *idle* (>90 days)`n"
+	WriteLine "**Legend:** 🔥=*new release* (<24h), 🆕=*new release* (in $monthName), 🔖=*new tag* (in $monthName), 💤=*idle* (>90 days)`n"
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
