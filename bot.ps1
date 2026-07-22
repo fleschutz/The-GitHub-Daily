@@ -252,9 +252,10 @@ try {
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
 	WriteLine "And last but not least **command-line** with $ln`n"
 
-	WriteLine "*Updated $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
+	WriteLine "**Legend:** 🔥=*new release (<24h)*, 🆕=*new release (in $monthName)*, 🔖=*new tag (in $monthName)*, 💤=*idle (>90 days)*`n"
 
-	WriteLine "**Legend:** 🔥=*new release* (<24h), 🆕=*new release* (in $monthName), 🔖=*new tag* (in $monthName), 💤=*idle* (>90 days)`n"
+	WriteLine "**Update:** of $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
+
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
