@@ -254,7 +254,7 @@ try {
 
 	WriteLine "**Legend:** 🔥=*new release (<24h)*, 🆕=*new release (in $monthName)*, 🔖=*new tag (in $monthName)*, 💤=*idle (>90 days)*`n"
 
-	WriteLine "**Update:** of $today from $($global:numRepos) selected GitHub repositories by our friendly 🤖 [bot script](bot.ps1).*`n"
+	WriteLine "**Update:** *scanned $($global:numRepos) GitHub repositories as of $today by our friendly 🤖 [bot script](bot.ps1).*`n"
 
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
