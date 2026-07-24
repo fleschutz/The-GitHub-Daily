@@ -102,7 +102,7 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "Today, the latest and greatest releases of **featured repositories** are $ln`n"
+	WriteLine "Today in **featured repositories** the very latest releases are $ln`n"
 
 	 $ln = Repo "Audacity"           "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
