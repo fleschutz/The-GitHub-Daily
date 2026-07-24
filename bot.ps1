@@ -79,9 +79,9 @@ try {
 	[system.threading.thread]::currentthread.currentculture = [system.globalization.cultureinfo]"en-US"
 	$today = (Get-Date).ToShortDateString()
 	$global:numRepos = 0
-	Write-Output "" > README.md
-	WriteLine "📰 GitHub News on $weekday"
-	WriteLine "========================`n"
+	Write-Output "📰 GitHub News on $weekday" > README.md
+	WriteLine    "=========================="
+	WriteLine ""
 
 	 $ln = Repo "bitchat"            "jackjackbits/bitchat"        "v*"
 	$ln += Repo "Bitcoin Core"       "bitcoin/bitcoin"             "v*"
@@ -102,7 +102,8 @@ try {
 	$ln += Repo "WSL"                "microsoft/WSL"               ""
 	$ln += Repo "ZFS"                "openzfs/zfs"                 "zfs-*"
 	$ln += Repo "Zulip"              "zulip/zulip"                 ""
-	WriteLine "Today in **featured repositories** the very latest releases are $ln`n"
+	WriteLine "Today in **featured repositories** the very latest releases are $ln"
+	WriteLine ""
 
 	 $ln = Repo "Audacity"           "audacity/audacity"           "Audacity-*"
 	$ln += Repo "Blender"            "blender/blender"             "v*"
@@ -129,7 +130,8 @@ try {
 	$ln += Repo "Windows Terminal"   "microsoft/terminal"          "v*"
 	$ln += Repo "WinMerge"           "WinMerge/winmerge"           "v*"
 	$ln += Repo "Zen Browser"        "zen-browser/desktop"         ""
-	WriteLine "In **general apps** we have $ln`n"
+	WriteLine "In **general apps** we have $ln"
+	WriteLine ""
 
 	 $ln = Repo "Atom"               "atom/atom"                   "v*"
 	$ln += Repo "Brackets"           "brackets-cont/brackets"      "v*"
@@ -146,7 +148,8 @@ try {
 	$ln += Repo "Vim"                "vim/vim"                     "v*"
 	$ln += Repo "Visual Studio Code" "microsoft/vscode"            "v*"
 	$ln += Repo "Zed"                "zed-industries/zed"          "v*"
-	WriteLine "In **text editors & IDEs** there's $ln`n"
+	WriteLine "In **text editors & IDEs** there's $ln"
+	WriteLine ""
 
 	 $ln = Repo "AssemblyScript"     "AssemblyScript/assemblyscript" "v*"
 	$ln += Repo "C#"                 "dotnet/csharplang"             ""
@@ -177,7 +180,8 @@ try {
 	$ln += Repo "TypeScript"         "microsoft/TypeScript"          "v*"
 	$ln += Repo "V"                  "vlang/v"                       "*"
 	$ln += Repo "Zig"                "ziglang/zig"                   ""
-	WriteLine "In **programming languages** it's $ln`n"
+	WriteLine "In **programming languages** it's $ln"
+	WriteLine ""
 
 	 $ln = Repo "alsa-lib"           "alsa-project/alsa-lib"   "v*"
 	$ln += Repo "BitNet"             "microsoft/BitNet"        ""
@@ -201,7 +205,8 @@ try {
 	$ln += Repo "TensorFlow"         "tensorflow/tensorflow"   "v*"
 	$ln += Repo "Whisper"            "openai/whisper"          "v*"
 	$ln += Repo "zstd"               "facebook/zstd"           "v*"
-	WriteLine "In **APIs/SDKs/AI** the very latest are $ln`n"
+	WriteLine "In **APIs/SDKs/AI** the very latest are $ln"
+	WriteLine ""
 
 	 $ln = Repo "Ant"                "apache/ant"          "rel/*"
 	$ln += Repo "Bazel"              "bazelbuild/bazel"    ""
@@ -215,7 +220,8 @@ try {
 	$ln += Repo "Ninja"              "ninja-build/ninja"   "v*"
 	$ln += Repo "Pants"              "pantsbuild/pants"    "release_*"
 	$ln += Repo "TinyCC"             "TinyCC/tinycc"       "release_*"
-	WriteLine "Looking at **compiler & build systems** there's $ln`n"
+	WriteLine "Looking at **compiler & build systems** there's $ln"
+	WriteLine ""
 
 	 $ln = Repo "Ansible"            "ansible/ansible"       "v*"
 	$ln += Repo "Capistrano"         "capistrano/capistrano" "v*"
@@ -231,7 +237,8 @@ try {
 	$ln += Repo "statsd"             "statsd/statsd"         "v*"
 	$ln += Repo "Terraform"          "hashicorp/terraform"   "v*"
 	$ln += Repo "Vagrant"            "hashicorp/vagrant"     "v*"
-	WriteLine "For **DevOps** it's $ln`n"
+	WriteLine "For **DevOps** it's $ln"
+	WriteLine ""
 
 	 $ln = Repo "coreutils"          "coreutils/coreutils"   "v*"
 	$ln += Repo "curl"               "curl/curl"             "curl-*"
@@ -250,12 +257,12 @@ try {
 	$ln += Repo "winget"             "microsoft/winget-cli"  "v*"
 	$ln += Repo "wget"               "mirror/wget"           ""
 	$ln += Repo "zsh"                "zsh-users/zsh"         "zsh-*"
-	WriteLine "And last but not least **command-line** with $ln`n"
-
-	WriteLine "**Legend:** 🔥=*new release in 24h* • 🆕=*new release in $monthName* • 🔖=*new tag in $monthName*  • 💤=*idle for 90+ days*`n"
-
-	WriteLine "**Updated:** *$today by our friendly 🤖 [bot script](bot.ps1) scanning $($global:numRepos) popular GitHub repositories*`n"
-
+	WriteLine "And last but not least **command-line** with $ln"
+	WriteLine ""
+	WriteLine "**Legend:** 🔥=*new release in 24h* • 🆕=*new release in $monthName* • 🔖=*new tag in $monthName*  • 💤=*idle for 90+ days*"
+	WriteLine ""
+	WriteLine "**Updated:** *$today by our friendly 🤖 [bot script](bot.ps1) scanning $($global:numRepos) popular GitHub repositories*"
+	WriteLine ""
 
 	Write-Host "`n⏳ (6/7) Committing updated README.md..."
 	& git add README.md
